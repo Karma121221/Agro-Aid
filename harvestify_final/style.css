@@ -5,7 +5,9 @@ body {
     background: url("wheat.jpg") no-repeat center center fixed;
     background-size: cover;
 }
-
+body {
+    background-color: hsl(120, 94%, 50%);
+}
 .box {
     position: absolute;
     top: 50%;
