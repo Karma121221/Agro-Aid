@@ -58,6 +58,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 </header>
 <!-- //header -->
 
+
+
 <!-- banner -->
 <section class="banner_w3lspvt" id="home">
 	<div class="csslider infinity" id="slider1">
@@ -106,7 +108,6 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	</div>
 </section>
 <!-- //banner -->
-
 
 <!-- core values -->
 <section class="core-value py-5" style="
@@ -213,5 +214,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- move top icon -->
 <a href="#home" class="move-top text-center"></a>
 <!-- //move top icon -->
+
+<!-- Popup Container -->
+<!-- Chatbot Popup Button -->
+<button onclick="togglePopup()" class="chatbot-button">Chat with AgroAid</button>
+
+<!-- Chatbot Popup Container -->
+<!-- Welcome Popup -->
+<div id="welcomePopup" class="popup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="closePopup()">&times;</span>
+        <p>Welcome to Agro-Aid! How can we assist you today?</p>
+    </div>
+</div>
+
+<!-- Chatbot Popup -->
+<button onclick="togglePopup()" class="chatbot-button">Chat with AgroAid</button>
+
+<div class="popup" id="chatPopup">
+    <div class="popup-content">
+        <span class="close-btn" onclick="togglePopup()">&times;</span>
+        <p style="text-align: center; font-weight: bold;">Agro-Aid Chatbot🌿</p>
+		<iframe src="./AgroAid_Chatbot/INDEX11.html" width="100%" height="400px" style="border:none;"></iframe>
+    </div>
+</div>
+
+<!-- Script for Popup -->
+<script src="script2.js"></script>
+
 </body>
 </html>

@@ -1,0 +1,155 @@
+/* Reset styles */
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+  font-family: Arial, sans-serif;
+}
+
+body {
+  background-color: #f4f4f4;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 95vh;
+}
+
+.chat-container {
+  width: 400px;
+  background: white;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+}
+
+.chat-header {
+  background: #4caf50;
+  color: white;
+  padding: 15px;
+  text-align: center;
+  font-size: 18px;
+  font-weight: bold;
+}
+
+.chat-box {
+  height: 350px;
+  overflow-y: auto;
+  padding: 10px;
+  background: #f9f9f9;
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  scrollbar-width: thin;
+  scrollbar-color: #4caf50 #f9f9f9;
+}
+
+/* Scrollbar for Chrome */
+.chat-box::-webkit-scrollbar {
+  width: 8px;
+}
+
+.chat-box::-webkit-scrollbar-thumb {
+  background-color: #4caf50;
+  border-radius: 10px;
+}
+
+.chat-box::-webkit-scrollbar-track {
+  background: #f9f9f9;
+}
+
+/* Chat message styles */
+.chat-message {
+  padding: 10px;
+  border-radius: 8px;
+  max-width: 75%;
+  word-wrap: break-word;
+}
+
+/* Bot messages */
+.bot {
+  background: #4caf50;
+  color: white;
+  align-self: flex-start;
+  padding: 12px;
+  border-radius: 8px 8px 8px 0;
+}
+
+/* User messages */
+.user {
+  background: #ddd;
+  color: black;
+  align-self: flex-end;
+  padding: 12px;
+  border-radius: 8px 8px 0 8px;
+}
+
+/* Chat input area */
+.chat-input {
+  display: flex;
+  border-top: 1px solid #ddd;
+  padding: 10px;
+  background: white;
+}
+
+.chat-input input {
+  flex: 1;
+  padding: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+  outline: none;
+  font-size: 14px;
+}
+
+.chat-input button {
+  background: #4caf50;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  cursor: pointer;
+  margin-left: 10px;
+  border-radius: 5px;
+  font-size: 14px;
+  transition: background 0.3s;
+}
+
+.chat-input button:hover {
+  background: #45a049;
+}
+
+/* ✅ Improved Speak Button */
+.speak-button {
+  background-color: transparent;
+  color: #4caf50;
+  border: none;
+  padding: 3px 8px;
+  margin-top: 3px;
+  cursor: pointer;
+  border-radius: 5px;
+  font-size: 12px;
+  font-weight: bold;
+  display: flex;
+  align-items: center;
+  gap: 5px;
+  transition: color 0.3s;
+}
+
+.speak-button:hover {
+  color: #388e3c;
+}
+
+/* Make the button text and icon align neatly */
+.speak-button::before {
+  content: "🔊";
+  font-size: 14px;
+}
+
+/* Chat response container (for bot response + speak button) */
+.chat-response {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 5px;
+  margin: 10px 0;
+}
