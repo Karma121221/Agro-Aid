@@ -29,8 +29,10 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 	<!-- google fonts -->
 	<link href="//fonts.googleapis.com/css?family=Thasadith:400,400i,700,700i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet">
 	<!-- //google fonts -->
+
 	<style>
-		.parallax {
+		/* Parallax Effect for Background Images */
+.parallax {
     position: relative;
     background-attachment: fixed;
     background-size: cover;
@@ -39,7 +41,22 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
     width: 100%;
     height: 100vh; /* Adjust as needed */
 }
+
+/* Adjust specific sections */
+.core-value {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
+.blog {
+    background-attachment: fixed;
+    background-size: cover;
+    background-position: center;
+}
+
 	</style>
+	
 </head>
 <body>
 
@@ -120,13 +137,16 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //banner -->
 
 <!-- core values -->
-<section class="core-value py-5" style="
-    background-color: lightgreen;
-    background-image: linear-gradient(120deg, rgba(157, 234, 157, 0.5) 0%, rgba(157, 234, 157, 0.8) 100%);
-    background-size: 400% 400%;
-    animation: gradient 15s ease infinite;
+<!-- Core Values Section with Parallax -->
+<section class="core-value py-5 parallax " style="
+   
+    background-image: url(./images/1.jpeg);
+	height: auto;
+	background-color: rgb(45, 45, 45);
+    background-size: cover;
     backdrop-filter: blur(5px);
-    ">
+">
+
     <style>
         @keyframes gradient {
             0% {
@@ -149,9 +169,9 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				<img src="images/India_Farming.jpg" class="img-fliud" alt="" />
 			</div>
 			<div class="col-lg-6 core-right">
-				<h3 class="mt-4">Unlock the full potential of your farm with our cutting-edge crop prediction, yield prediction, and soil analysis tools.</h3>
+				<h4 class="p-3 mb-2 bg-secondary text-white">Unlock the full potential of your farm with our cutting-edge crop prediction, yield prediction, and soil analysis tools.</h4>
 
-				<p class="mt-3">We use Crop Prediction and Yield Production using Machine Learning to help you guide through the entire farming process. Make informed decisions to understand the demographics of your area, understand the factors that affect your crop and keep them healthy for a super awesome successful yield.</p>
+				<p class="p-3 mb-2 bg-success text-white">We use Crop Prediction and Yield Production using Machine Learning to help you guide through the entire farming process. Make informed decisions to understand the demographics of your area, understand the factors that affect your crop and keep them healthy for a super awesome successful yield.</p>
 
 			</div>
 		</div>
@@ -160,7 +180,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 <!-- //core values -->
 
 <!-- Products & Services -->
-<section class="blog py-5" style="background-color: lightgreen;">
+<section class="blog py-5" style="background-image: url(./images/img02.avif);">
 	<div class="container py-md-5">
 		        <h1 class="heading mb-sm-5 mb-4 text-center" style="font-family: 'Roboto Slab', serif; font-size: 50px; font-weight: bold; color: #02000e;">Our Services</h1>
 		<div class="row blog-grids">
@@ -179,7 +199,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 				</div>
 			</div>
 			<div class="col-lg-4 col-md-6 blog-right mt-lg-0 mt-5 pt-lg-0 pt-md-5">
-				<img src="images/1.jpeg" class="img-fliud" alt="" />
+				<img src="images/img01.jpg" class="img-fliud" alt="" />
 				<div class="blog-info">
 					<h4>Crop Leaf Disease Detection</h4>
 					<p class="mt-2"> Detecting the diseases in the crops using Machine Learning. </p>
@@ -251,6 +271,19 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
 <!-- Script for Popup -->
 <script src="script2.js"></script>
+
+<script>
+	document.addEventListener("scroll", function () {
+    let scrolled = window.scrollY;
+    let parallaxElements = document.querySelectorAll(".parallax");
+
+    parallaxElements.forEach(function (element) {
+        let speed = 0.5; // Adjust speed if needed
+        element.style.backgroundPositionY = -(scrolled * speed) + "px";
+    });
+});
+
+</script>
 
 </body>
 </html>
