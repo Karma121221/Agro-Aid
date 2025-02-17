@@ -431,7 +431,7 @@ li > a:only-child:after {
   min-height: 770px;
 }
 .overlay {
-  min-height: 770px;
+  min-height: 790px;
   background: rgba(0, 0, 0, 0.4);
 }
 .overlay1 {
@@ -1664,6 +1664,7 @@ a.move-top {
     cursor: pointer;
     font-size: 16px;
     transition: background 0.3s;
+    z-index: 1;
 }
 
 .chatbot-button:hover {
@@ -1703,6 +1704,10 @@ a.move-top {
 
 .close-btn:hover {
     color: darkred;
+}
+
+.core-value py-5 parallax{
+  background-size: 300px 100px;
 }
 
 /*-- //Responsive design --*/
