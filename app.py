@@ -4,7 +4,7 @@ import google.generativeai as genai
 import re  # For text cleaning
 
 # Configure Gemini API (Replace with your valid API key)
-API_KEY = "AIzaSyAO7QHEB2fH1uVsAuhVjp6NCKT1v_DzQRQ"
+API_KEY = "popppp"
 genai.configure(api_key=API_KEY)
 
 app = Flask(__name__, static_folder="Agro-Aid", static_url_path="/Agro-Aid")
