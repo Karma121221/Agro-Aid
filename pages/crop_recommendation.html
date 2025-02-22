@@ -1,0 +1,336 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Crop Recommendation - AgroAid</title>
+    <!-- for-mobile-apps -->
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8" />
+    <meta name="keywords" content="Crop Recommendation, Agriculture, Farming, AgroAid" />
+
+    <script>
+        addEventListener(
+            "load",
+            function () {
+                setTimeout(hideURLbar, 0);
+            },
+            false
+        );
+
+        function hideURLbar() {
+            window.scrollTo(0, 1);
+        }
+    </script>
+
+    <!-- css files -->
+    <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
+    <link href="../css/style.css" rel="stylesheet" type="text/css" />
+    <link href="../css/font-awesome.min.css" rel="stylesheet" />
+    <link href="../css/crop_recommendation.css" rel="stylesheet" type="text/css" />
+
+    <!-- google fonts -->
+    <link href="//fonts.googleapis.com/css?family=Thasadith:400,400i,700,700i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet" />
+</head>
+<body>
+    <!-- header -->
+    <header>
+      <div class="container">
+        <nav class="py-4 d-lg-flex align-items-center">
+          <div id="logo" class="mr-auto">
+            <h1 style="margin-left: -100px;">
+              <a href="../index.html">
+                <span class="fa fa-tree" style="font-size: 30px; color: green"></span>
+                <span style="font-size: 35px; font-weight: bold; color: #90ee90; text-shadow: 0 0 20px #90ee90;">Agro-Aid</span>
+              </a>
+            </h1>
+          </div>
+
+          <div class="dropdown">
+            <button class="dropbtn" onclick="toggleDropdown()">
+              Menu <span class="fa fa-bars"></span>
+            </button>
+            <div id="myDropdown" class="dropdown-content">
+              <a href="crop_recommendation.html">
+                <span class="fa fa-seedling"></span> Crop Recommendation
+              </a>
+              <a href="Leaf Disease Detection.html">
+                <span class="fa fa-sun"></span> Leaf-Disease Detection
+              </a>
+              <a href="Yeild Prediction.html">
+                <span class="fa fa-tractor"></span> Yield Prediction
+              </a>
+              <a href="../dashboard.html">
+                <span class="fa fa-dashboard"></span> Dashboard
+              </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- banner -->
+    <section class="banner_w3lspvt" id="home">
+      <div class="overlay">
+        <div class="container">
+          <div class="w3layouts-banner-info text-center">
+            <div class="agro-aid" style="
+              position: absolute;
+              top: 50%;
+              left: 50%;
+              transform: translate(-50%, -50%);
+              text-align: center;
+              width: 100%;
+            ">
+              <h3 class="banner-text" style="
+                color: #90ee90;
+                font-size: 50px;
+                font-weight: bold;
+                text-shadow: 0 0 20px #90ee90;
+                margin-bottom: 20px;
+              ">
+                Crop Recommendation
+              </h3>
+              <p class="mb-4" style="
+                color: white;
+                font-size: 18px;
+                max-width: 800px;
+                margin: 0 auto;
+                letter-spacing: 1px;
+              ">
+                Discover the best crop for your soil and environmental conditions. 
+                Our advanced AI-powered recommendation system helps farmers make 
+                informed decisions for optimal agricultural productivity.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- Main Content -->
+    <div class="w3layouts-banner-info crop-recommendation-section">
+        <div class="container">
+            <div class="row justify-content-center">
+                <div class="col-lg-8">
+                    <div class="crop-recommendation-container shadow-lg">
+                        <h3 class="text-center mb-4">Crop Recommendation</h3>
+                        <form id="cropRecommendationForm">
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="nitrogen">Nitrogen Level (0-300 kg/ha)</label>
+                                    <input type="number" class="form-control" id="nitrogen" placeholder="Enter Nitrogen" 
+                                           min="0" max="300" required>
+                                    <div class="invalid-feedback">
+                                        Nitrogen must be between 0-300 kg/ha
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="phosphorus">Phosphorus Level (0-200 kg/ha)</label>
+                                    <input type="number" class="form-control" id="phosphorus" placeholder="Enter Phosphorus" 
+                                           min="0" max="200" required>
+                                    <div class="invalid-feedback">
+                                        Phosphorus must be between 0-200 kg/ha
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="potassium">Potassium Level (0-250 kg/ha)</label>
+                                    <input type="number" class="form-control" id="potassium" placeholder="Enter Potassium" 
+                                           min="0" max="250" required>
+                                    <div class="invalid-feedback">
+                                        Potassium must be between 0-250 kg/ha
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="temperature">Temperature (-10 to 50°C)</label>
+                                    <input type="number" step="0.1" class="form-control" id="temperature" placeholder="Enter Temperature" 
+                                           min="-10" max="50" required>
+                                    <div class="invalid-feedback">
+                                        Temperature must be between -10 and 50°C
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row">
+                                <div class="form-group col-md-6">
+                                    <label for="humidity">Humidity (0-100%)</label>
+                                    <input type="number" class="form-control" id="humidity" placeholder="Enter Humidity" 
+                                           min="0" max="100" required>
+                                    <div class="invalid-feedback">
+                                        Humidity must be between 0-100%
+                                    </div>
+                                </div>
+                                <div class="form-group col-md-6">
+                                    <label for="ph">Soil pH (3.5-10)</label>
+                                    <input type="number" step="0.1" class="form-control" id="ph" placeholder="Enter Soil pH" 
+                                           min="3.5" max="10" required>
+                                    <div class="invalid-feedback">
+                                        Soil pH must be between 3.5-10
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-group">
+                                <label for="rainfall">Rainfall (0-5000 mm/year)</label>
+                                <input type="number" class="form-control" id="rainfall" placeholder="Enter Rainfall" 
+                                       min="0" max="5000" required>
+                                <div class="invalid-feedback">
+                                    Rainfall must be between 0-5000 mm/year
+                                </div>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block mt-3">Get Crop Recommendation</button>
+                        </form>
+                        <div id="recommendationResult" class="mt-4" style="display: none;">
+                            <div class="alert alert-success" role="alert">
+                                <h4 class="alert-heading">Recommended Crop</h4>
+                                <hr>
+                                <p id="recommendedCrop" class="mb-0"></p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer class="footer py-5">
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-12 text-center">
+                    <p class="copy-right">&copy; 2025 AgroAid. All Rights Reserved.</p>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+    <script>
+        function simulateCropRecommendation(data) {
+            const crops = [
+                'Wheat', 'Rice', 'Corn', 'Soybean', 'Potato', 
+                'Tomato', 'Sugarcane', 'Cotton', 'Barley', 'Sorghum'
+            ];
+            return crops[Math.floor(Math.random() * crops.length)];
+        }
+
+        document.getElementById('cropRecommendationForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            // Validate inputs
+            const inputs = this.querySelectorAll('input');
+            let isValid = true;
+            
+            inputs.forEach(input => {
+                if (!input.checkValidity()) {
+                    input.classList.add('is-invalid');
+                    input.classList.remove('is-valid');
+                    isValid = false;
+                } else {
+                    input.classList.remove('is-invalid');
+                    input.classList.add('is-valid');
+                }
+            });
+            
+            if (isValid) {
+                const formData = {
+                    nitrogen: document.getElementById('nitrogen').value,
+                    phosphorus: document.getElementById('phosphorus').value,
+                    potassium: document.getElementById('potassium').value,
+                    temperature: document.getElementById('temperature').value,
+                    humidity: document.getElementById('humidity').value,
+                    ph: document.getElementById('ph').value,
+                    rainfall: document.getElementById('rainfall').value
+                };
+                
+                const recommendedCrop = simulateCropRecommendation(formData);
+                
+                const resultDiv = document.getElementById('recommendationResult');
+                const recommendedCropElement = document.getElementById('recommendedCrop');
+                
+                recommendedCropElement.textContent = recommendedCrop;
+                resultDiv.style.display = 'block';
+            }
+        });
+    </script>
+    <script>
+        function toggleDropdown() {
+            var dropdownContent = document.getElementById("myDropdown");
+            dropdownContent.classList.toggle("show");
+        }
+
+        // Close the dropdown menu if the user clicks outside of it
+        window.onclick = function(event) {
+            if (!event.target.matches('.dropbtn')) {
+                var dropdowns = document.getElementsByClassName("dropdown-content");
+                for (var i = 0; i < dropdowns.length; i++) {
+                    var openDropdown = dropdowns[i];
+                    if (openDropdown.classList.contains('show')) {
+                        openDropdown.classList.remove('show');
+                    }
+                }
+            }
+        }
+    </script>
+    <style>
+        .dropdown {
+            position: relative;
+            display: inline-block;
+            z-index: 1000;
+        }
+
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 14px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        .dropbtn:hover {
+            background-color: #45a049;
+        }
+
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 220px;
+            box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.1);
+            z-index: 1001;
+            right: 0;
+            border-radius: 4px;
+            overflow: hidden;
+            max-height: 300px;
+            overflow-y: auto;
+        }
+
+        .dropdown-content a {
+            color: black;
+            padding: 10px 14px;
+            text-decoration: none;
+            display: block;
+            transition: background-color 0.3s;
+            font-size: 14px;
+        }
+
+        .dropdown-content a:hover {
+            background-color: #f1f1f1;
+        }
+
+        .dropdown-content.show {
+            display: block;
+            animation: fadeIn 0.3s ease;
+        }
+
+        @keyframes fadeIn {
+            from {opacity: 0; transform: translateY(-10px);}
+            to {opacity: 1; transform: translateY(0);}
+        }
+    </style>
+</body>
+</html>
