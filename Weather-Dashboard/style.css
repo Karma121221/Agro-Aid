@@ -1,0 +1,140 @@
+/* Global Styles */
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+/* Background Image and Overlay */
+body {
+    background-image: url("s3.jpg");  /* Replace with your image file name */
+    background-size: 100%;
+    background-position: center;
+    background-attachment: fixed;
+    color: #e0e0e0;
+    font-size: 16px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    position: relative;
+    overflow-x: hidden;
+}
+
+body::before {
+    content: '';
+    background: rgba(0, 0, 0, 0.5); /* Dark overlay for better text contrast */
+    position: fixed;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    z-index: -1;
+}
+
+/* Headings */
+h3 {
+    font-weight: bold;
+    color: #f5f5f5;
+}
+
+/* Forecast Text */
+.forecast {
+    font-size: 0.9em;
+    color: #bdbdbd;
+}
+
+/* Span Text */
+span {
+    font-size: 1em;
+    color: #ffffff;
+}
+
+/* List Item Hover */
+li:hover {
+    background-color: #333333;
+    text-decoration: underline;
+    transition: background-color 0.3s;
+    border-radius: 5px;
+}
+
+/* Jumbotron */
+.jumbotron {
+    background-color: rgba(31, 31, 31, 0.8); /* Semi-transparent */
+    color: #e0e0e0;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/* Primary Button */
+.bg-primary {
+    background-color: #1a73e8 !important;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.bg-primary:hover {
+    background-color: #1358b7 !important;
+}
+
+/* Light Background */
+.bg-light {
+    background-color: rgba(44, 44, 44, 0.8) !important;
+    color: white;
+    border-radius: 10px;
+}
+
+/* List Group Items */
+.list-group-item {
+    background-color: #333;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    transition: background-color 0.3s;
+}
+
+.list-group-item:hover {
+    background-color: #444;
+}
+
+/* Buttons */
+.btn {
+    border-radius: 5px;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.3);
+    transition: box-shadow 0.3s;
+}
+
+.btn:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.4);
+    transform: translateY(-2px);
+}
+
+/* Input Fields */
+.input-group .form-control {
+    background-color: #2c2c2c;
+    color: white;
+    border: 1px solid #444;
+    border-radius: 5px;
+}
+
+.input-group .form-control:focus {
+    background-color: #3c3c3c;
+    box-shadow: none;
+    border-color: #1a73e8;
+}
+
+/* Cards */
+.card {
+    background-color: rgba(30, 30, 30, 0.8);
+    color: white;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+}
+
+/* Footer */
+footer {
+    background-color: rgba(31, 31, 31, 0.8);
+    color: #bdbdbd;
+    border-top: 1px solid #333;
+    padding: 10px 0;
+}
+
