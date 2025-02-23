@@ -29,6 +29,133 @@
 
     <!-- google fonts -->
     <link href="//fonts.googleapis.com/css?family=Thasadith:400,400i,700,700i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet" />
+    <style>
+        .brand-text {
+            font-size: 35px;
+            font-weight: bold;
+            color: #90ee90;
+            text-shadow: 0 0 20px #90ee90;
+        }
+        
+        .banner-text {
+            color: #90ee90;
+            font-size: 50px;
+            font-weight: bold;
+            text-shadow: 0 0 20px #90ee90;
+            margin-bottom: 20px;
+        }
+        
+        .banner-description {
+            color: white;
+            font-size: 18px;
+            max-width: 800px;
+            margin: 0 auto;
+            letter-spacing: 1px;
+        }
+        
+        .agro-aid {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            text-align: center;
+            width: 100%;
+        }
+        
+        .crop-recommendation-container {
+            padding: 20px;
+        }
+        
+        .crop-recommendation-section {
+            padding: 50px 0;
+        }
+        
+        .banner_w3lspvt {
+            background-image: url('../images/banner.jpg');
+            background-size: cover;
+            background-position: center;
+            height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+        }
+        
+        .overlay {
+            background-color: rgba(0, 0, 0, 0.5);
+            height: 100%;
+            width: 100%;
+        }
+        
+        .w3layouts-banner-info {
+            padding: 20px;
+        }
+        
+        .copy-right {
+            font-size: 14px;
+            color: #fff;
+        }
+        
+        .footer {
+            background-color: #333;
+            color: #fff;
+            padding: 20px;
+        }
+        
+        .dropbtn {
+            background-color: #4CAF50;
+            color: white;
+            padding: 8px 14px;
+            font-size: 14px;
+            border: none;
+            cursor: pointer;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+        
+        .dropbtn:hover {
+            background-color: #45a049;
+        }
+        
+        .dropdown-content {
+            display: none;
+            position: absolute;
+            background-color: #f9f9f9;
+            min-width: 200px;
+            box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+            z-index: 1;
+            border-radius: 5px;
+            overflow: hidden;
+            animation: fadeIn 0.5s ease-in-out;
+        }
+        
+        .dropdown-content a {
+            color: black;
+            padding: 12px 16px;
+            text-decoration: none;
+            display: block;
+            transition: background 0.3s ease;
+        }
+        
+        .dropdown-content a:hover {
+            background-color: #9edaa0;
+            color: #000000;
+        }
+        
+        .dropdown:hover .dropdown-content {
+            display: block;
+        }
+        
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(-10px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+    </style>
 </head>
 <body>
     <!-- header -->
@@ -36,10 +163,10 @@
       <div class="container">
         <nav class="py-4 d-lg-flex align-items-center">
           <div id="logo" class="mr-auto">
-            <h1 style="margin-left: -100px;">
+            <h1>
               <a href="../index.html">
                 <span class="fa fa-tree" style="font-size: 30px; color: green"></span>
-                <span style="font-size: 35px; font-weight: bold; color: #90ee90; text-shadow: 0 0 20px #90ee90;">Agro-Aid</span>
+                <span class="brand-text">Agro-Aid</span>
               </a>
             </h1>
           </div>
@@ -72,30 +199,11 @@
       <div class="overlay">
         <div class="container">
           <div class="w3layouts-banner-info text-center">
-            <div class="agro-aid" style="
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              text-align: center;
-              width: 100%;
-            ">
-              <h3 class="banner-text" style="
-                color: #90ee90;
-                font-size: 50px;
-                font-weight: bold;
-                text-shadow: 0 0 20px #90ee90;
-                margin-bottom: 20px;
-              ">
+            <div class="agro-aid">
+              <h3 class="banner-text">
                 Crop Recommendation
               </h3>
-              <p class="mb-4" style="
-                color: white;
-                font-size: 18px;
-                max-width: 800px;
-                margin: 0 auto;
-                letter-spacing: 1px;
-              ">
+              <p class="banner-description mb-4">
                 Discover the best crop for your soil and environmental conditions. 
                 Our advanced AI-powered recommendation system helps farmers make 
                 informed decisions for optimal agricultural productivity.
@@ -273,67 +381,6 @@
             }
         }
     </script>
-    <style>
-        .dropdown {
-            position: relative;
-            display: inline-block;
-            z-index: 1000;
-        }
-
-        .dropbtn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 8px 14px;
-            font-size: 14px;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
-
-        .dropbtn:hover {
-            background-color: #45a049;
-        }
-
-        .dropdown-content {
-        display: none;
-        position: absolute;
-        background-color: #f9f9f9;
-        min-width: 200px;
-        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
-        z-index: 1;
-        border-radius: 5px;
-        overflow: hidden;
-        animation: fadeIn 0.5s ease-in-out;
-      }
-
-      .dropdown-content a {
-        color: black;
-        padding: 12px 16px;
-        text-decoration: none;
-        display: block;
-        transition: background 0.3s ease;
-      }
-
-      .dropdown-content a:hover {
-        background-color: #9edaa0;
-		color: #000000;
-      }
-
-      .dropdown:hover .dropdown-content {
-        display: block;
-      }
-	
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(-10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-    </style>
-</body>
+    <script src="../js/crop_recommendation.js"></script>
+  </body>
 </html>
