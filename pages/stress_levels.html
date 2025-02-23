@@ -87,7 +87,7 @@
                 text-shadow: 0 0 20px #90ee90;
                 margin-bottom: 20px;
               ">
-                Yield Prediction
+                Crop Health Prediction
               </h3>
               <p class="mb-4" style="
                 color: white;
@@ -96,10 +96,12 @@
                 margin: 0 auto;
                 letter-spacing: 1px;
               ">
-                Discover the best crop for your soil and environmental conditions. 
-                Our advanced AI-powered recommendation system helps farmers make 
-                informed decisions for optimal agricultural productivity.
-              </p>
+                  This tool helps you quickly check the health of your crops using everyday measurements from your farm. 
+                  Simply enter values like soil moisture, temperature, humidity, and nutrient levels, and you'll receive an 
+                  easy-to-understand prediction of your plants' stress levels.
+                  
+                  Use this information to know when your crops might 
+                  need extra care, so you can boost their growth and yield.              </p>
             </div>
           </div>
         </div>
@@ -107,82 +109,106 @@
     </section>
 
     <div class="w3layouts-banner-info yield-prediction-section">
-        <div class="container">
-            <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="yield-prediction-container shadow-lg">
-                        <h3 class="text-center mb-4">Plant Stress Prediction</h3>
-                        <form id="PlantStressPredictionForm">
-                            <!-- Soil Moisture -->
-                            <div class="form-group">
-                                <label for="soil_moisture">Soil Moisture</label>
-                                <input type="number" class="form-control" id="soil_moisture" placeholder="Enter Soil Moisture" step="any" required>
-                            </div>
-                            <!-- Ambient Temperature -->
-                            <div class="form-group">
-                                <label for="ambient_temperature">Ambient Temperature</label>
-                                <input type="number" class="form-control" id="ambient_temperature" placeholder="Enter Ambient Temperature" step="any" required>
-                            </div>
-                            <!-- Soil Temperature -->
-                            <div class="form-group">
-                                <label for="soil_temperature">Soil Temperature</label>
-                                <input type="number" class="form-control" id="soil_temperature" placeholder="Enter Soil Temperature" step="any" required>
-                            </div>
-                            <!-- Humidity -->
-                            <div class="form-group">
-                                <label for="humidity">Humidity</label>
-                                <input type="number" class="form-control" id="humidity" placeholder="Enter Humidity" step="any" required>
-                            </div>
-                            <!-- Light Intensity -->
-                            <div class="form-group">
-                                <label for="light_intensity">Light Intensity</label>
-                                <input type="number" class="form-control" id="light_intensity" placeholder="Enter Light Intensity" step="any" required>
-                            </div>
-                            <!-- Soil pH -->
-                            <div class="form-group">
-                                <label for="soil_ph">Soil pH</label>
-                                <input type="number" class="form-control" id="soil_ph" placeholder="Enter Soil pH" step="any" required>
-                            </div>
-                            <!-- Nitrogen Level -->
-                            <div class="form-group">
-                                <label for="nitrogen_level">Nitrogen Level</label>
-                                <input type="number" class="form-control" id="nitrogen_level" placeholder="Enter Nitrogen Level" step="any" required>
-                            </div>
-                            <!-- Phosphorus Level -->
-                            <div class="form-group">
-                                <label for="phosphorus_level">Phosphorus Level</label>
-                                <input type="number" class="form-control" id="phosphorus_level" placeholder="Enter Phosphorus Level" step="any" required>
-                            </div>
-                            <!-- Potassium Level -->
-                            <div class="form-group">
-                                <label for="potassium_level">Potassium Level</label>
-                                <input type="number" class="form-control" id="potassium_level" placeholder="Enter Potassium Level" step="any" required>
-                            </div>
-                            <!-- Chlorophyll Content -->
-                            <div class="form-group">
-                                <label for="chlorophyll_content">Chlorophyll Content</label>
-                                <input type="number" class="form-control" id="chlorophyll_content" placeholder="Enter Chlorophyll Content" step="any" required>
-                            </div>
-                            <!-- Electrochemical Signal -->
-                            <div class="form-group">
-                                <label for="electrochemical_signal">Electrochemical Signal</label>
-                                <input type="number" class="form-control" id="electrochemical_signal" placeholder="Enter Electrochemical Signal" step="any" required>
-                            </div>
-                            <!-- Predict Button -->
-                            <button type="button" class="btn btn-primary btn-block mt-3" onclick="predictPlantStress()">Predict Stress Level</button>
-                        </form>
-                        <div id="predictionResult" class="mt-4" style="display: none;">
-                            <div class="alert alert-success" role="alert">
-                                <h4 class="alert-heading">Predicted Plant Stress Level</h4>
-                                <hr>
-                                <p id="predictedStress" class="mb-0"></p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+      <div class="container">
+          <div class="row justify-content-center">
+              <div class="col-lg-8">
+                  <div class="yield-prediction-container shadow-lg">
+                      <h3 class="text-center mb-4">Plant Stress Prediction</h3>
+                      <form id="PlantStressPredictionForm">
+                          <!-- Soil Moisture -->
+                          <div class="form-group">
+                              <label for="soil_moisture">
+                                  Soil Moisture <span style="font-size: 14px; font-weight: bold; color: #333;">(0-50%)</span>
+                              </label>
+                              <input type="number" class="form-control" id="soil_moisture" placeholder="Enter Soil Moisture (%)" step="any" required>
+                          </div>
+                          <!-- Ambient Temperature -->
+                          <div class="form-group">
+                              <label for="ambient_temperature">
+                                  Ambient Temperature <span style="font-size: 14px; font-weight: bold; color: #333;">(0-50 °C)</span>
+                              </label>
+                              <input type="number" class="form-control" id="ambient_temperature" placeholder="Enter Ambient Temperature (°C)" step="any" required>
+                          </div>
+                          <!-- Soil Temperature -->
+                          <div class="form-group">
+                              <label for="soil_temperature">
+                                  Soil Temperature <span style="font-size: 14px; font-weight: bold; color: #333;">(0-50 °C)</span>
+                              </label>
+                              <input type="number" class="form-control" id="soil_temperature" placeholder="Enter Soil Temperature (°C)" step="any" required>
+                          </div>
+                          <!-- Humidity -->
+                          <div class="form-group">
+                              <label for="humidity">
+                                  Humidity <span style="font-size: 14px; font-weight: bold; color: #333;">(0-100%)</span>
+                              </label>
+                              <input type="number" class="form-control" id="humidity" placeholder="Enter Humidity (%)" step="any" required>
+                          </div>
+                          <!-- Light Intensity -->
+                          <div class="form-group">
+                              <label for="light_intensity">
+                                  Light Intensity <span style="font-size: 14px; font-weight: bold; color: #333;">(0-1000 lux)</span>
+                              </label>
+                              <input type="number" class="form-control" id="light_intensity" placeholder="Enter Light Intensity (lux)" step="any" required>
+                          </div>
+                          <!-- Soil pH -->
+                          <div class="form-group">
+                              <label for="soil_ph">
+                                  Soil pH <span style="font-size: 14px; font-weight: bold; color: #333;">(0-10)</span>
+                              </label>
+                              <input type="number" class="form-control" id="soil_ph" placeholder="Enter Soil pH" step="any" required>
+                          </div>
+                          <!-- Nitrogen Level -->
+                          <div class="form-group">
+                              <label for="nitrogen_level">
+                                  Nitrogen Level <span style="font-size: 14px; font-weight: bold; color: #333;">(0-50 mg/kg)</span>
+                              </label>
+                              <input type="number" class="form-control" id="nitrogen_level" placeholder="Enter Nitrogen Level (mg/kg)" step="any" required>
+                          </div>
+                          <!-- Phosphorus Level -->
+                          <div class="form-group">
+                              <label for="phosphorus_level">
+                                  Phosphorus Level <span style="font-size: 14px; font-weight: bold; color: #333;">(0-50 mg/kg)</span>
+                              </label>
+                              <input type="number" class="form-control" id="phosphorus_level" placeholder="Enter Phosphorus Level (mg/kg)" step="any" required>
+                          </div>
+                          <!-- Potassium Level -->
+                          <div class="form-group">
+                              <label for="potassium_level">
+                                  Potassium Level <span style="font-size: 14px; font-weight: bold; color: #333;">(0-50 mg/kg)</span>
+                              </label>
+                              <input type="number" class="form-control" id="potassium_level" placeholder="Enter Potassium Level (mg/kg)" step="any" required>
+                          </div>
+                          <!-- Chlorophyll Content -->
+                          <div class="form-group">
+                              <label for="chlorophyll_content">
+                                  Chlorophyll Content <span style="font-size: 14px; font-weight: bold; color: #333;">(0-50 SPAD)</span>
+                              </label>
+                              <input type="number" class="form-control" id="chlorophyll_content" placeholder="Enter Chlorophyll Content (SPAD)" step="any" required>
+                          </div>
+                          <!-- Electrochemical Signal -->
+                          <div class="form-group">
+                              <label for="electrochemical_signal">
+                                  Electrochemical Signal <span style="font-size: 14px; font-weight: bold; color: #333;">(0-5 mV)</span>
+                              </label>
+                              <input type="number" class="form-control" id="electrochemical_signal" placeholder="Enter Electrochemical Signal (mV)" step="any" required>
+                          </div>
+                          <!-- Predict Button -->
+                          <button type="button" class="btn btn-primary btn-block mt-3" onclick="predictPlantStress()">Predict Stress Level</button>
+                      </form>
+                      <div id="predictionResult" class="mt-4" style="display: none;">
+                          <div class="alert alert-success" role="alert">
+                              <h4 class="alert-heading">Predicted Plant Stress Level</h4>
+                              <hr>
+                              <p id="predictedStress" class="mb-0"></p>
+                          </div>
+                      </div>
+                  </div>
+              </div>
+          </div>
+      </div>
+  </div>
+  
+  
 
 
     <!-- Footer -->
@@ -200,7 +226,7 @@
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script src="..\Models/Stress Levels/plant_stress_rf_model.js"></script>
+    <script src="..\js/plant_stress_rf_model.js"></script>
     <script>
         function predictPlantStress() {
             // Retrieve values from input fields
