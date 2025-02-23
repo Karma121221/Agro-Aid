@@ -55,7 +55,7 @@
               <a href="Leaf Disease Detection.html">
                 <span class="fa fa-sun"></span> Leaf-Disease Detection
               </a>
-              <a href="Yeild Prediction.html">
+              <a href="yield_prediction.html">
                 <span class="fa fa-tractor"></span> Yield Prediction
               </a>
               <a href="../dashboard.html">
@@ -296,41 +296,44 @@
         }
 
         .dropdown-content {
-            display: none;
-            position: absolute;
-            background-color: #f9f9f9;
-            min-width: 220px;
-            box-shadow: 0px 4px 8px 0px rgba(0,0,0,0.1);
-            z-index: 1001;
-            right: 0;
-            border-radius: 4px;
-            overflow: hidden;
-            max-height: 300px;
-            overflow-y: auto;
-        }
+        display: none;
+        position: absolute;
+        background-color: #f9f9f9;
+        min-width: 200px;
+        box-shadow: 0px 8px 16px rgba(0, 0, 0, 0.2);
+        z-index: 1;
+        border-radius: 5px;
+        overflow: hidden;
+        animation: fadeIn 0.5s ease-in-out;
+      }
 
-        .dropdown-content a {
-            color: black;
-            padding: 10px 14px;
-            text-decoration: none;
-            display: block;
-            transition: background-color 0.3s;
-            font-size: 14px;
-        }
+      .dropdown-content a {
+        color: black;
+        padding: 12px 16px;
+        text-decoration: none;
+        display: block;
+        transition: background 0.3s ease;
+      }
 
-        .dropdown-content a:hover {
-            background-color: #f1f1f1;
-        }
+      .dropdown-content a:hover {
+        background-color: #9edaa0;
+		color: #000000;
+      }
 
-        .dropdown-content.show {
-            display: block;
-            animation: fadeIn 0.3s ease;
+      .dropdown:hover .dropdown-content {
+        display: block;
+      }
+	
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(-10px);
         }
-
-        @keyframes fadeIn {
-            from {opacity: 0; transform: translateY(-10px);}
-            to {opacity: 1; transform: translateY(0);}
+        to {
+          opacity: 1;
+          transform: translateY(0);
         }
+      }
     </style>
 </body>
 </html>
