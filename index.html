@@ -10,19 +10,22 @@
       content="Agro Harvest Responsive web template, Bootstrap Web Templates, Flat Web Templates, Android Compatible web template, 
 Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, SonyEricsson, Motorola web design"
     />
-    <div id="google_translate_element"></div> 
+    <div id="google_translate_element"></div>
 
-<!-- to your js part -->
-<script src="script.js"></script>
-      <script type="text/javascript">
-        function googleTranslateElementInit() {
-            new google.translate.TranslateElement(
-                {pageLanguage: 'en'},
-                'google_translate_element'
-            );
-        } 
-  </script>
-  <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+    <!-- to your js part -->
+    <script src="script.js"></script>
+    <script type="text/javascript">
+      function googleTranslateElementInit() {
+        new google.translate.TranslateElement(
+          { pageLanguage: "en" },
+          "google_translate_element"
+        );
+      }
+    </script>
+    <script
+      type="text/javascript"
+      src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"
+    ></script>
 
     <script>
       addEventListener(
@@ -86,21 +89,21 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
       }
 
       .dropdown {
-            position: relative;
-            display: inline-block;
-            z-index: 1000;
-        }
+        position: relative;
+        display: inline-block;
+        z-index: 1000;
+      }
 
-        .dropbtn {
-            background-color: #4CAF50;
-            color: white;
-            padding: 8px 14px;
-            font-size: 14px;
-            border: none;
-            cursor: pointer;
-            border-radius: 4px;
-            transition: background-color 0.3s;
-        }
+      .dropbtn {
+        background-color: #4caf50;
+        color: white;
+        padding: 8px 14px;
+        font-size: 14px;
+        border: none;
+        cursor: pointer;
+        border-radius: 4px;
+        transition: background-color 0.3s;
+      }
 
       .dropbtn:hover {
         background-color: #45a049;
@@ -128,13 +131,13 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
 
       .dropdown-content a:hover {
         background-color: #9edaa0;
-		color: #000000;
+        color: #000000;
       }
 
       .dropdown:hover .dropdown-content {
         display: block;
       }
-	
+
       @keyframes fadeIn {
         from {
           opacity: 0;
@@ -154,7 +157,7 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
         <!-- Updated Navbar -->
         <nav class="py-4 d-lg-flex align-items-center">
           <div id="logo" class="mr-auto">
-            <h1 style="margin-left: -100px;">
+            <h1 style="margin-left: -100px">
               <a href="index.html">
                 <span
                   class="fa fa-tree"
@@ -173,23 +176,33 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             </h1>
           </div>
 
-          <div class="dropdown">
+          <div
+            class="dropdown"
+            style="display: inline-block; margin-right: 10px"
+          >
             <button class="dropbtn">
               Menu <span class="fa fa-bars"></span>
             </button>
             <div class="dropdown-content">
-              <a href="pages/crop_recommendation.html"
-                ><span class="fa fa-seedling"></span>Crop Recommendation</a
-              >
-              <a href="pages/stress_levels.html"
-                ><span class="fa fa-sun"></span>Crop Health Assessment</a
-              >
-              <a href="pages/yield_prediction.html"
-                ><span class="fa fa-tractor"></span>Yield Prediction</a
-              >
+              <a href="pages/crop_recommendation.html">
+                <span class="fa fa-seedling"></span> Crop Recommendation
+              </a>
+              <a href="pages/stress_levels.html">
+                <span class="fa fa-sun"></span> Crop Health Assessment
+              </a>
+              <a href="pages/yield_prediction.html">
+                <span class="fa fa-tractor"></span> Yield Prediction
+              </a>
               <a href="Weather-Dashboard/indexweather.html">Dashboard</a>
             </div>
           </div>
+
+          <!-- Forum Button -->
+          <a href="./Forum/indexforum.html">
+            <button class="dropbtn">
+              Forum <span class="fa fa-comments"></span>
+            </button>
+          </a>
         </nav>
       </div>
     </header>
@@ -405,6 +418,15 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
           </a>
         </h2>
         <!-- //logo -->
+        <!-- Let Us Know Button -->
+        <div style="text-align: center; margin-top: 20px">
+          <a href="./Forum/indexforum.html">
+            <button class="dropbtn">
+              Let Us Know <span class="fa fa-comment"></span>
+            </button>
+          </a>
+        </div>
+
         <!-- address -->
         <div class="contact-left-footer mt-4">
           <p class="homelogo">
@@ -413,9 +435,8 @@ Smartphone Compatible web template, free webdesigns for Nokia, Samsung, LG, Sony
             >&nbsp;&nbsp;
             <a href="Yield Prediction.html">Yield Prediction</a>&nbsp;&nbsp;
             <a href="Leaf Disease Detection.html">Leaf Disease Detection</a
-            >&nbsp;&nbsp;
-            >
-              <a href="Weather-Dashboard/indexweather.html">Weather Dashboard</a>
+            >&nbsp;&nbsp; >
+            <a href="Weather-Dashboard/indexweather.html">Weather Dashboard</a>
 
             <!-- <a href="community.html">Community</a> -->
           </p>
