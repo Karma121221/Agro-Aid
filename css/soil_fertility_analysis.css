@@ -1,0 +1,442 @@
+/* Yield Prediction Page Styles */
+
+body {
+    font-family: 'Thasadith', sans-serif;
+    color: #323648;
+}
+
+/* Banner and Page Layout Styles */
+.banner_w3lspvt {
+    position: relative;
+    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)),
+                url('../images/banner.jpg') no-repeat center;
+    background-size: cover;
+    min-height: 800px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.banner_w3lspvt .overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(0, 0, 0, 0.5);
+}
+
+.yield-prediction-section {
+    padding: 50px 0;
+    background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+    min-height: calc(100vh - 300px);
+    display: flex;
+    align-items: center;
+}
+
+.yield-prediction-container {
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0 15px 35px rgba(0,0,0,0.1);
+    padding: 40px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+
+.yield-prediction-container::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 5px;
+    background: linear-gradient(to right, #28a745, #2ecc71);
+}
+
+.yield-prediction-container:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 20px 40px rgba(0,0,0,0.15);
+}
+
+.yield-prediction-container h3 {
+    color: #28a745;
+    font-weight: 700;
+    letter-spacing: 1px;
+    margin-bottom: 30px;
+    position: relative;
+}
+
+.yield-prediction-container h3::after {
+    content: '';
+    position: absolute;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 50px;
+    height: 3px;
+    background: #28a745;
+}
+
+.form-group label {
+    font-weight: 600;
+    color: #28a745;
+    letter-spacing: 1px;
+    transition: color 0.3s ease;
+}
+
+.form-group:hover label {
+    color: #2ecc71;
+}
+
+.form-control {
+    border-radius: 6px;
+    border: 1px solid #ced4da;
+    transition: all 0.3s ease;
+    padding: 10px 15px;
+}
+
+.form-control:focus {
+    border-color: #28a745;
+    box-shadow: 0 0 0 0.2rem rgba(40, 167, 69, 0.25);
+}
+
+.btn-primary {
+    background: linear-gradient(to right, #28a745, #2ecc71);
+    border: none;
+    padding: 12px 30px;
+    border-radius: 30px;
+    font-weight: 600;
+    letter-spacing: 1px;
+    transition: all 0.3s ease;
+}
+
+.btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(46, 204, 113, 0.3);
+}
+
+.result-section {
+    margin-top: 30px;
+    padding: 20px;
+    border-radius: 10px;
+    background: rgba(40, 167, 69, 0.1);
+    display: none;
+}
+
+.result-section h4 {
+    color: #28a745;
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.alert-success {
+    background-color: #d4edda;
+    border-color: #c3e6cb;
+    color: #155724;
+}
+
+.alert-success h4.alert-heading {
+    color: #000000 !important;
+    font-weight: 600;
+    margin-bottom: 15px;
+}
+
+.alert-success p {
+    color: #000000 !important;
+}
+
+.alert-success strong {
+    color: #000000 !important;
+    font-weight: 700;
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: #90ee90;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #90ee90;
+    color: white;
+}
+
+.show {
+    display: block;
+}
+
+/* Footer Styles */
+.footer {
+    background: #28a745;
+    color: white;
+    padding: 60px 0 30px;
+}
+
+.footer h5 {
+    color: white;
+    font-weight: 600;
+    margin-bottom: 20px;
+    font-size: 1.2rem;
+}
+
+.footer p {
+    color: rgba(255, 255, 255, 0.9);
+    line-height: 1.6;
+}
+
+.footer ul li {
+    margin-bottom: 10px;
+}
+
+.footer ul li a {
+    color: rgba(255, 255, 255, 0.9);
+    text-decoration: none;
+    transition: color 0.3s ease;
+}
+
+.footer ul li a:hover {
+    color: white;
+    text-decoration: none;
+}
+
+.footer .social-icons {
+    margin-top: 15px;
+}
+
+.footer .social-icons a {
+    color: white;
+    font-size: 1.5rem;
+    transition: all 0.3s ease;
+}
+
+.footer .social-icons a:hover {
+    color: #90ee90;
+    transform: translateY(-3px);
+}
+
+.footer hr {
+    border-color: rgba(255, 255, 255, 0.1);
+    margin: 30px 0;
+}
+
+.footer .copy-right {
+    color: rgba(255, 255, 255, 0.9);
+    font-size: 0.9rem;
+}
+
+/* Responsive Footer */
+@media (max-width: 768px) {
+    .footer {
+        padding: 40px 0 20px;
+        text-align: center;
+    }
+    
+    .footer .col-lg-4 {
+        margin-bottom: 30px;
+    }
+    
+    .footer .social-icons {
+        margin-top: 20px;
+    }
+    
+    .footer h5 {
+        margin-bottom: 15px;
+    }
+}
+
+/* Responsive Adjustments */
+@media (max-width: 768px) {
+    .banner_w3lspvt {
+        min-height: 300px;
+    }
+    .yield-prediction-section {
+        padding: 30px 0;
+        min-height: auto;
+    }
+    .yield-prediction-container {
+        padding: 25px;
+    }
+    .form-group label {
+        font-size: 14px;
+    }
+    .form-control {
+        padding: 8px 12px;
+    }
+    .btn-primary {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}
+
+/* Dark Mode Support */
+@media (prefers-color-scheme: dark) {
+    body {
+        background: linear-gradient(135deg, #2c3e50 0%, #3498db 100%);
+        color: #ecf0f1;
+    }
+    .yield-prediction-container {
+        background-color: #34495e;
+        box-shadow: 0 10px 15px rgba(255, 255, 255, 0.1);
+    }
+    .yield-prediction-container h3 {
+        color: #2ecc71;
+    }
+    .form-group label {
+        color: #2ecc71;
+    }
+    .form-control {
+        background-color: #2c3e50;
+        border-color: #34495e;
+        color: #ecf0f1;
+    }
+    .form-control:focus {
+        background-color: #3498db;
+        border-color: #2ecc71;
+        color: white;
+    }
+    .btn-primary {
+        background-color: #2ecc71;
+        border-color: #2ecc71;
+    }
+    .btn-primary:hover {
+        background-color: #27ae60;
+        border-color: #27ae60;
+    }
+    .result-section {
+        background-color: #27ae60;
+        border-color: #2ecc71;
+        color: white;
+    }
+}
+
+/* Logo and Header Styles */
+#logo h1 {
+    margin-left: -100px;
+}
+
+#logo .fa-tree {
+    font-size: 30px;
+    color: green;
+}
+
+#logo span.brand-text {
+    font-size: 35px;
+    font-weight: bold;
+    color: #90ee90;
+    text-shadow: 0 0 20px #90ee90;
+}
+
+/* Banner Content Styles */
+.agro-aid {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    text-align: center;
+    width: 100%;
+}
+
+.banner-text {
+    color: #90ee90;
+    font-size: 50px;
+    font-weight: bold;
+    text-shadow: 0 0 20px #90ee90;
+    margin-bottom: 20px;
+}
+
+.banner-description {
+    color: white;
+    font-size: 18px;
+    max-width: 800px;
+    margin: 0 auto;
+    letter-spacing: 1px;
+}
+
+/* Recommendation Result Styles */
+#recommendationResult {
+    display: none;
+}
+
+/* Dropdown Menu Styles */
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropbtn {
+    background-color: transparent;
+    color: #90ee90;
+    padding: 16px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    right: 0;
+    background-color: #f9f9f9;
+    min-width: 200px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+    border-radius: 8px;
+    overflow: hidden;
+}
+
+.dropdown-content a {
+    color: #333;
+    padding: 12px 16px;
+    text-decoration: none;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    transition: all 0.3s ease;
+}
+
+.dropdown-content a:hover {
+    background-color: #90ee90;
+    color: white;
+}
+
+.show {
+    display: block;
+}
