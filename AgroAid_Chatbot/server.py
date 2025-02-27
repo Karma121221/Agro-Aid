@@ -4,7 +4,7 @@ import google.generativeai as genai
 import re  # For text cleaning
 
 # Configure Gemini API (Replace with your valid API key)
-API_KEY = "AIzaSyAPNqBA-Y0JNVdAZLB5sZoU7r14ZY1hCqU"
+API_KEY = "INPUT YOUR API HERE"
 genai.configure(api_key=API_KEY)
 
 app = Flask(__name__)
@@ -12,7 +12,7 @@ CORS(app)  # Enable CORS for all routes
 
 # Function to process user input and get chatbot response
 def agro_aid_chatbot(user_input):
-    model = genai.GenerativeModel("models/gemini-1.5-pro")
+    model = genai.GenerativeModel("models/gemini-2.0-flash")
     response = model.generate_content(user_input)
     formatted_response = format_text(response.text) if response.text else "I'm sorry, I couldn't understand that."
     return formatted_response
