@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Chatbot</title>
+    <style>
+      body {
+        font-family: Arial, sans-serif;
+        text-align: center;
+        padding: 50px;
+      }
+      .chatbox {
+        width: 800px;
+        height: auto;
+        margin: auto;
+        margin-top: 100px;
+        padding: 20px;
+        border: 5px solid #59c44b;
+        border-radius: 30px;
+      }
+      h1 {
+        font-size: 50px;
+        color: rgb(0, 176, 0);
+        text-shadow: 1px 2px gray;
+      }
+      input {
+        width: 90%;
+        padding: 10px;
+        margin: 10px 0;
+        margin-top: 50px;
+        border-radius: 20px;
+      }
+      button {
+        margin-top: 50px;
+        width: 100px;
+        height: 40px;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="chatbox">
+      <h1 id="chatbot-text">Hello, please enter your name to get started.</h1>
+      <input type="text" id="userName" placeholder="Enter your name" />
+      <button onclick="askQuestion()">Next</button>
+      <div id="questionBox" style="display: none">
+        <input
+          type="text"
+          id="userQuestion"
+          placeholder="Enter your question"
+        />
+        <button onclick="submitQuestion()">Submit</button>
+      </div>
+    </div>
+
+    <script>
+      function askQuestion() {
+        let name = document.getElementById("userName").value;
+        if (name.trim() === "") {
+          alert("Please enter your name.");
+          return;
+        }
+        document.getElementById(
+          "chatbot-text"
+        ).innerText = `Hello ${name}, what is your question?`;
+        document.getElementById("userName").style.display = "none";
+        document.querySelector("button").style.display = "none";
+        document.getElementById("questionBox").style.display = "block";
+      }
+
+      function submitQuestion() {
+        let name = document.getElementById("userName").value;
+        let question = document.getElementById("userQuestion").value;
+        if (question.trim() === "") {
+          alert("Please enter a question.");
+          return;
+        }
+        let users = JSON.parse(localStorage.getItem("users")) || [];
+        users.push({ name, question });
+        localStorage.setItem("users", JSON.stringify(users));
+      }
+    </script>
+  </body>
+</html>

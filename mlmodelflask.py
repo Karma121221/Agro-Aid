@@ -1,74 +1,90 @@
 from flask import Flask, request, jsonify
 from flask_cors import CORS
 import pickle
+import joblib
 import numpy as np
 import os
+import pandas as pd
 
 app = Flask(__name__)
-CORS(app)  # Enable Cross-Origin Resource Sharing
+CORS(app)
 
-# Define the path to your model file (adjust the path if needed)
-MODEL_PATH = os.path.join("Models", "CropRecommendation", "crop_recommendation_model.pkl")
-
-# Load the crop recommendation model
+# Load Crop Recommendation Model
+CROP_RECOMMENDATION_MODEL_PATH = os.path.join("Models", "CropRecommendation", "crop_recommendation_model.pkl")
 try:
-    with open(MODEL_PATH, "rb") as model_file:
-        model = pickle.load(model_file)
-    print("Model loaded successfully.")
+    with open(CROP_RECOMMENDATION_MODEL_PATH, "rb") as model_file:
+        crop_recommendation_model = pickle.load(model_file)
+    print("Crop recommendation model loaded successfully.")
 except Exception as e:
-    print(f"Error loading model: {e}")
-    model = None
+    print(f"Error loading crop recommendation model: {e}")
+    crop_recommendation_model = None
 
+# Load Crop Yield Prediction Model using joblib
+YIELD_PREDICTION_MODEL_PATH = os.path.join("Models", "YieldbyProduction", "best_rf_yield.pkl")
+try:
+    yield_model_pipeline = joblib.load(YIELD_PREDICTION_MODEL_PATH)
+    print("Crop yield prediction model loaded successfully.")
+    print("Loaded yield_model_pipeline type:", type(yield_model_pipeline))
+except Exception as e:
+    print(f"Error loading yield prediction model: {e}")
+    yield_model_pipeline = None
+
+# Crop Recommendation Endpoint
 @app.route('/predict', methods=['POST'])
-def predict():
+def recommend_crop():
     try:
         data = request.get_json()
-        if not data:
-            return jsonify({'error': 'No input data provided'}), 400
+        nitrogen    = float(data['nitrogen'])
+        phosphorus  = float(data['phosphorus'])
+        potassium   = float(data['potassium'])
+        temperature = float(data['temperature'])
+        humidity    = float(data['humidity'])
+        soil_ph     = float(data['ph'])
+        rainfall    = float(data['rainfall'])
 
-        # Extract and convert input values
-        try:
-            nitrogen    = float(data['nitrogen'])
-            phosphorus  = float(data['phosphorus'])
-            potassium   = float(data['potassium'])
-            temperature = float(data['temperature'])
-            humidity    = float(data['humidity'])
-            soil_ph     = float(data['ph'])
-            rainfall    = float(data['rainfall'])
-        except (KeyError, ValueError) as e:
-            return jsonify({'error': f'Invalid input data: {e}'}), 400
+        if crop_recommendation_model is None:
+            return jsonify({'error': 'Crop recommendation model not loaded.'}), 500
 
-        # Validate input ranges (matching the constraints in your HTML form)
-        if not (0 <= nitrogen <= 300):
-            return jsonify({'error': 'Nitrogen value out of range (0-300)'}), 400
-        if not (0 <= phosphorus <= 200):
-            return jsonify({'error': 'Phosphorus value out of range (0-200)'}), 400
-        if not (0 <= potassium <= 250):
-            return jsonify({'error': 'Potassium value out of range (0-250)'}), 400
-        if not (-10 <= temperature <= 50):
-            return jsonify({'error': 'Temperature value out of range (-10 to 50°C)'}), 400
-        if not (0 <= humidity <= 100):
-            return jsonify({'error': 'Humidity value out of range (0-100%)'}), 400
-        if not (3.5 <= soil_ph <= 10):
-            return jsonify({'error': 'Soil pH value out of range (3.5-10)'}), 400
-        if not (0 <= rainfall <= 5000):
-            return jsonify({'error': 'Rainfall value out of range (0-5000 mm/year)'}), 400
-
-        # Ensure the model is loaded
-        if model is None:
-            return jsonify({'error': 'Model is not loaded.'}), 500
-
-        # Prepare input features as a 2D array (shape: [1, 7])
         features = np.array([[nitrogen, phosphorus, potassium, temperature, humidity, soil_ph, rainfall]])
-        
-        # Make a prediction using your ML model
-        prediction = model.predict(features)
-        predicted_crop = prediction[0]
-
-        return jsonify({'crop': predicted_crop})
+        prediction = crop_recommendation_model.predict(features)
+        return jsonify({'crop': prediction[0]})
+    
     except Exception as e:
         return jsonify({'error': str(e)}), 500
 
+# Yield Prediction Endpoint
+@app.route('/predict-yield', methods=['POST'])
+def predict_yield():
+    try:
+        data = request.get_json()
+
+        land_area = float(data['land_area'])  # in hectares
+        production = float(data['production'])  # in tonnes
+        state = data['state']
+        crop = data['crop']
+        district = data['district']
+        season = data['season']
+
+        if yield_model_pipeline is None:
+            return jsonify({'error': 'Yield prediction model not loaded.'}), 500
+
+        input_data = {
+            'Land area utilized for production': [land_area],
+            'Crop production': [production],
+            'srcStateName': [state],
+            'Crop name': [crop],
+            'srcDistrictName': [district],
+            'Crop season': [season],
+        }
+        df = pd.DataFrame(input_data)
+        prediction = yield_model_pipeline.predict(df)
+        return jsonify({'yield': prediction[0]})
+    
+    except Exception as e:
+        return jsonify({'error': str(e)}), 500
+
+# ----------------------
+# Start the Flask App
+# ----------------------
 if __name__ == '__main__':
-    # Run the Flask server on port 5000 in debug mode
     app.run(debug=True, port=5000)

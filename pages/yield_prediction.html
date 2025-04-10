@@ -109,107 +109,75 @@
       </div>
     </section>
 
-<!-- Main Content -->
-<div class="w3layouts-banner-info yield-prediction-section">
-    <div class="container">
+    <div class="w3layouts-banner-info yield-prediction-section">
+      <div class="container">
         <div class="row justify-content-center">
-            <div class="col-lg-8">
-                <div class="yield-prediction-container shadow-lg">
-                    <h3 class="text-center mb-4">Yield Prediction</h3>
-                    <!-- onsubmit handler prevents page reload and calls predictYield() -->
-                    <form id="YieldPredictionForm" onsubmit="event.preventDefault(); predictYield();">
-                        <!-- Soil Type (dropdown) -->
-                        <div class="form-group">
-                            <label for="soil_type">Soil Type</label>
-                            <select class="form-control" id="soil_type" required>
-                                <option value="Chalky">Chalky</option>
-                                <option value="Clay">Clay</option>
-                                <option value="Loam">Loam</option>
-                                <option value="Peaty">Peaty</option>
-                                <option value="Sandy">Sandy</option>
-                                <option value="Silt">Silt</option>
-                            </select>
-                        </div>
-                        <!-- Crop (dropdown) -->
-                        <div class="form-group">
-                            <label for="crop">Crop</label>
-                            <select class="form-control" id="crop" required>
-                                <option value="Barley">Barley</option>
-                                <option value="Cotton">Cotton</option>
-                                <option value="Maize">Maize</option>
-                                <option value="Rice">Rice</option>
-                                <option value="Soybean">Soybean</option>
-                                <option value="Wheat">Wheat</option>
-                            </select>
-                        </div>
-                        <!-- Rainfall in mm/year -->
-                        <div class="form-group">
-                            <label for="rainfall_mm">Rainfall (mm/year)</label>
-                            <input type="number" class="form-control" id="rainfall_mm" placeholder="Enter Rainfall (mm/year)" 
-                                   min="0" max="5000" required>
-                            <div class="invalid-feedback">
-                                Rainfall must be between 0 and 5000 mm/year
-                            </div>
-                        </div>
-                        <!-- Temperature in Celsius -->
-                        <div class="form-group">
-                            <label for="temperature_celsius">Temperature (°C)</label>
-                            <input type="number" step="0.1" class="form-control" id="temperature_celsius" placeholder="Enter Temperature (°C)" 
-                                   min="-10" max="50" required>
-                            <div class="invalid-feedback">
-                                Temperature must be between -10 and 50°C
-                            </div>
-                        </div>
-                        <!-- Fertilizer Used -->
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="fertilizer_used">
-                                <label class="form-check-label" for="fertilizer_used">Fertilizer Used</label>
-                            </div>
-                        </div>
-                        <!-- Irrigation Used -->
-                        <div class="form-group">
-                            <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="irrigation_used">
-                                <label class="form-check-label" for="irrigation_used">Irrigation Used</label>
-                            </div>
-                        </div>
-                        <!-- Weather Condition (dropdown) -->
-                        <div class="form-group">
-                            <label for="weather_condition">Weather Condition</label>
-                            <select class="form-control" id="weather_condition" required>
-                                <option value="Sunny">Sunny</option>
-                                <option value="Cloudy">Cloudy</option>
-                                <option value="Rainy">Rainy</option>
-                            </select>
-                        </div>
-                        <!-- Days to Harvest -->
-                        <div class="form-group">
-                            <label for="days_to_harvest">Days to Harvest</label>
-                            <input type="number" class="form-control" id="days_to_harvest" placeholder="Enter Days to Harvest" 
-                                   min="0" required>
-                            <div class="invalid-feedback">
-                                Please enter a valid number of days
-                            </div>
-                        </div>
-                        <!-- Submit Button -->
-                        <button type="submit" style="margin-bottom: 20px;" class="btn btn-primary btn-block mt-3">Predict Yield</button>
-                    </form>
-                    <div id="predictionResult" class="mt-4" style="display: none;">
-                        <div class="alert alert-success" role="alert">
-                            <h4 class="alert-heading">Predicted Yield</h4>
-                            <hr>
-                            <p id="predictedYield" class="mb-0"></p>
-                        </div>
-                    </div>
+          <div class="col-lg-8">
+            <div class="yield-prediction-container shadow-lg">
+              <h3 class="text-center mb-4">Yield Prediction</h3>
+              <form id="yieldForm">
+                <!-- Land Area -->
+                <div class="form-group">
+                  <label for="land_area">Land Area (hectares):</label>
+                  <input type="number" class="form-control" id="land_area" name="land_area" required step="0.01" placeholder="e.g. 2.5"/>
                 </div>
+    
+                <!-- Production -->
+                <div class="form-group">
+                  <label for="production">Production (tonnes):</label>
+                  <input type="number" class="form-control" id="production" name="production" required step="0.01" placeholder="e.g. 500"/>
+                </div>
+    
+                <!-- State -->
+                <div class="form-group">
+                  <label for="state">State:</label>
+                  <select class="form-control" id="state" name="state" required>
+                    <option value="">Select State</option>
+                  </select>
+                </div>
+    
+                <!-- District -->
+                <div class="form-group">
+                  <label for="district">District:</label>
+                  <input type="text" class="form-control" id="district" name="district" required placeholder="Enter District"/>
+                </div>
+    
+                <!-- Crop -->
+                <div class="form-group">
+                  <label for="crop">Crop:</label>
+                  <select class="form-control" id="crop" name="crop" required>
+                    <option value="">Select Crop</option>
+                  </select>
+                </div>
+    
+                <!-- Season -->
+                <div class="form-group">
+                  <label for="season">Season:</label>
+                  <select class="form-control" id="season" name="season" required>
+                    <option value="">Select Season</option>
+                    <option>Summer</option>
+                    <option>Kharif</option>
+                    <option>Rabi</option>
+                    <option>Whole Year</option>
+                    <option>Autumn</option>
+                    <option>Winter</option>
+                  </select>
+                </div>
+    
+                <button type="submit" class="btn btn-primary btn-block mt-3">Predict Yield</button>
+              </form>
+    
+              <div id="result" class="alert alert-success mt-4" style="display:none;">
+                <h4 class="alert-heading">Predicted Yield</h4>
+                <p id="predictedYield" class="mb-0"></p>
+              </div>
             </div>
+          </div>
         </div>
-    </div>
-</div>
+      </div>
 
 
-<!-- Footer -->
+
 <footer class="footer py-5">
     <div class="container">
         <div class="row">
@@ -220,88 +188,69 @@
     </div>
 </footer>
 
-<!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- Include the exported regressor model -->
-<script src="..\js/yield_regressor_model.js"></script>
+
 <script>
-    // Function to manually encode categorical features.
-    function encodeCategorical(soilType, crop, weatherCondition) {
-    // Use the lexicographically sorted categories from training
-    const soilTypes = ["Chalky", "Clay", "Loam", "Peaty", "Sandy", "Silt"];
-    const crops = ["Barley", "Cotton", "Maize", "Rice", "Soybean", "Wheat"];
-    const weatherConditions = ["Cloudy", "Rainy", "Sunny"];
-    
-    const oneHot = (value, categories) =>
-        categories.map(category =>
-            (value.trim().toLowerCase() === category.toLowerCase() ? 1 : 0)
-        );
-    
-    return [
-        ...oneHot(soilType, soilTypes),    // 6 values
-        ...oneHot(crop, crops),            // 6 values
-        ...oneHot(weatherCondition, weatherConditions)  // 3 values
-    ];
-}
+  const states = ["GUJARAT", "PUNJAB", "CHHATTISGARH", "MANIPUR", "KARNATAKA", "ASSAM", "BIHAR", "HARYANA", "MADHYA PRADESH", "ODISHA", "TAMIL NADU", "MAHARASHTRA", "NAGALAND", "TRIPURA", "RAJASTHAN", "ANDAMAN & NICOBAR", "ANDHRA PRADESH", "ARUNACHAL PRADESH", "CHANDIGARH", "DADRA AND NAGAR HAVELI", "DAMAN AND DIU", "DELHI", "GOA", "HIMACHAL PRADESH", "JAMMU AND KASHMIR", "JHARKHAND", "KERALA", "MEGHALAYA", "MIZORAM", "PUDUCHERRY", "SIKKIM", "UTTAR PRADESH", "UTTARAKHAND", "WEST BENGAL", "TELANGANA"];
+  const crops = ["Sesamum", "Maize", "Masoor", "Urad", "Mesta", "Bajra", "Barley", "Sannhamp", "Ragi", "Rice", "Gram", "Wheat", "Jowar", "Khesari", "Jute", "Moth", "Arecanut", "Arhar/Tur", "Banana", "Black pepper", "Cashewnut", "Coconut", "Cowpea(Lobia)", "Dry chillies", "Ginger", "Groundnut", "Moong(Green Gram)", "Oilseeds total", "Rapeseed &Mustard", "Sugarcane", "Sweet potato", "Tapioca", "Turmeric", "Castor seed", "Coriander", "Cotton(lint)", "Garlic", "Horse-gram", "Linseed", "Niger seed", "Onion", "Other Rabi pulses", "Other Kharif pulses", "other oilseeds", "Potato", "Safflower", "Small millets", "Soyabean", "Sunflower", "Tobacco", "Peas & beans (Pulses)", "Other Cereals", "Guar seed", "Cardamom", "Other Summer Pulses", "Dry Ginger"];
 
-    function predictYield() {
-        // Retrieve numerical inputs.
-        var rainfall_mm = parseFloat(document.getElementById('rainfall_mm').value);
-        var temperature_celsius = parseFloat(document.getElementById('temperature_celsius').value);
-        var fertilizer_used = document.getElementById('fertilizer_used').checked ? 1 : 0;
-        var irrigation_used = document.getElementById('irrigation_used').checked ? 1 : 0;
-        var days_to_harvest = parseFloat(document.getElementById('days_to_harvest').value);
-        
-        // Retrieve categorical inputs.
-        var soil_type = document.getElementById('soil_type').value;
-        var crop = document.getElementById('crop').value;
-        var weather_condition = document.getElementById('weather_condition').value;
-        
-        // Manually encode categorical features correctly.
-        var encodedCategorical = encodeCategorical(soil_type, crop, weather_condition);
-        
-        // Create input vector: 15 one-hot features + 5 numerical features = 20 features total.
-        var input_features = [
-            ...encodedCategorical,
-            rainfall_mm,
-            temperature_celsius,
-            fertilizer_used,
-            irrigation_used,
-            days_to_harvest
-        ];
-        
-        // Call the exported regressor function (assumed to be named 'score').
-        var prediction = score(input_features);
-        
-        // Display the result.
-        document.getElementById('predictedYield').innerText = prediction.toFixed(2) + " tons per hectare";
-        document.getElementById('predictionResult').style.display = 'block';
-    }
+  const stateSelect = document.getElementById("state");
+  const cropSelect = document.getElementById("crop");
 
+  states.forEach(state => {
+    let option = document.createElement("option");
+    option.value = option.text = state;
+    stateSelect.add(option);
+  });
+
+  crops.forEach(crop => {
+    let option = document.createElement("option");
+    option.value = option.text = crop;
+    cropSelect.add(option);
+  });
+
+  document.getElementById("yieldForm").addEventListener("submit", function (e) {
+    e.preventDefault();
+
+    const land_area = parseFloat(document.getElementById("land_area").value);
+    const production = parseFloat(document.getElementById("production").value);
+    const state = document.getElementById("state").value;
+    const district = document.getElementById("district").value;
+    const crop = document.getElementById("crop").value;
+    const season = document.getElementById("season").value;
+
+    fetch("http://localhost:5000/predict-yield", {
+      method: "POST",
+      headers: {
+        "Content-Type": "application/json"
+      },
+      body: JSON.stringify({
+        land_area,
+        production,
+        state,
+        district,
+        crop,
+        season
+      })
+    })
+    .then(res => res.json())
+    .then(data => {
+      if (data.yield) {
+        document.getElementById("predictedYield").textContent = `Predicted Yield: ${data.yield.toFixed(2)} tonnes/hectare`;
+        document.getElementById("result").style.display = "block";
+      } else if (data.error) {
+        document.getElementById("predictedYield").textContent = `Error: ${data.error}`;
+        document.getElementById("result").style.display = "block";
+      }
+    })
+    .catch(err => {
+      console.error(err);
+      document.getElementById("result").textContent = "An error occurred while predicting.";
+    });
+  });
 </script>
-
-
-    <script>
-        function toggleDropdown() {
-            var dropdownContent = document.getElementById("myDropdown");
-            dropdownContent.classList.toggle("show");
-        }
-
-        // Close the dropdown menu if the user clicks outside of it
-        window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
-                var dropdowns = document.getElementsByClassName("dropdown-content");
-                for (var i = 0; i < dropdowns.length; i++) {
-                    var openDropdown = dropdowns[i];
-                    if (openDropdown.classList.contains('show')) {
-                        openDropdown.classList.remove('show');
-                    }
-                }
-            }
-        }
-    </script>
     <style>
         .dropdown {
             position: relative;

@@ -1,14 +1,13 @@
 from flask import Flask, send_from_directory, jsonify, request
-from flask_cors import CORS  # Enable CORS for frontend requests
+from flask_cors import CORS 
 import google.generativeai as genai
-import re  # For text cleaning
+import re 
 
-# Configure Gemini API (Replace with your valid API key)
-API_KEY = "API KEY HERE"
+API_KEY = "API"
 genai.configure(api_key=API_KEY)
 
 app = Flask(__name__, static_folder="Agro-Aid", static_url_path="/Agro-Aid")
-CORS(app)  # Enable CORS for all routes
+CORS(app)
 
 def agro_aid_chatbot(user_input):
     model = genai.GenerativeModel("models/gemini-2.0-flash")
@@ -17,8 +16,8 @@ def agro_aid_chatbot(user_input):
     return formatted_response
 
 def format_text(text):
-    text = re.sub(r'\*+', '', text)  # Remove asterisks (*** or **)
-    text = re.sub(r'\s+', ' ', text).strip()  # Remove extra spaces
+    text = re.sub(r'\*+', '', text)
+    text = re.sub(r'\s+', ' ', text).strip() 
 
     formatted_text = re.sub(r'(?<!• )([A-Za-z ]+):', r'\n• \1:', text)  
 
@@ -34,14 +33,13 @@ def serve_static_files(path):
 
 @app.route("/chat", methods=["POST"])
 def chat():
-    data = request.json  # Get user input from JSON request
-    user_input = data.get("message", "").strip()  # Extract and clean message
+    data = request.json  
+    user_input = data.get("message", "").strip()
     if not user_input:
         return jsonify({"reply": "Please provide a message."})
 
-    bot_response = agro_aid_chatbot(user_input)  # Get chatbot reply
-    return jsonify({"reply": bot_response})  # Return JSON response
+    bot_response = agro_aid_chatbot(user_input) 
+    return jsonify({"reply": bot_response}) 
 
-# Run the Flask server
 if __name__ == "__main__":
     app.run(host="127.0.0.1", port=5500, debug=True)

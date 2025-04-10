@@ -3,7 +3,7 @@ from gtts import gTTS
 import IPython.display as display
 import re  # Import regex for text cleaning
 
-API_KEY = "API KEY HERE"  # Replace with your actual Gemini API key
+API_KEY = "API"  # Replace with your actual Gemini API key
 genai.configure(api_key=API_KEY)
 
 def agro_aid_chatbot(user_input):
