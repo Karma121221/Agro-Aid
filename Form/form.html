@@ -51,7 +51,7 @@
         } else {
           users.forEach((user) => {
             let listItem = document.createElement("li");
-            listItem.innerText = `${user.name}: ${user.question}`;
+            listItem.innerText = `${user.name} [${user.topic}]: ${user.question}`;
             userList.appendChild(listItem);
           });
         }
