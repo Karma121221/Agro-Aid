@@ -17,7 +17,6 @@ def predict():
     try:
         data = request.get_json()
         
-        # Extract features from the request
         features = [
             float(data['nitrogen']),
             float(data['phosphorus']),
