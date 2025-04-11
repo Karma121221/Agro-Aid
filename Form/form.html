@@ -6,11 +6,14 @@
     <title>Customer Support Form</title>
     <style>
       body {
+        background: url("./img02.avif") no-repeat center center fixed;
+        background-size: cover;
         font-family: Arial, sans-serif;
         text-align: center;
         padding: 50px;
       }
       .forum-box {
+        background-color: #d2ffd2;
         width: 300px;
         margin: auto;
         padding: 20px;
@@ -51,7 +54,7 @@
         } else {
           users.forEach((user) => {
             let listItem = document.createElement("li");
-            listItem.innerText = `${user.name}: ${user.question}`;
+            listItem.innerText = `${user.name} [${user.topic}]: ${user.question}`;
             userList.appendChild(listItem);
           });
         }
