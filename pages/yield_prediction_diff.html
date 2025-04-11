@@ -2,7 +2,6 @@
 <html lang="en">
 <head>
     <title>Crop Recommendation - AgroAid</title>
-    <!-- for-mobile-apps -->
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta charset="utf-8" />
     <meta name="keywords" content="Yield Prediction, Agriculture, Farming, AgroAid, Yield, Crop Yield" />
@@ -21,18 +20,15 @@
         }
     </script>
 
-    <!-- css files -->
     <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
     <link href="../css/soil_fertility_analysis.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-
-    <!-- google fonts -->
     <link href="//fonts.googleapis.com/css?family=Thasadith:400,400i,700,700i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet" />
+  
 </head>
 <body>
-    <!-- header -->
     <header>
       <div class="container">
         <nav class="py-4 d-lg-flex align-items-center">
@@ -50,7 +46,6 @@
               Menu <span class="fa fa-bars"></span>
             </button>
           
-            <!-- Hidden dropdown links go inside .dropdown-content -->
             <div class="dropdown-content" id="myDropdown">
               <a href="crop_recommendation.html">
                 <span class="fa fa-seedling"></span> Crop Recommendation
@@ -69,7 +64,6 @@
       </div>
     </header>
 
-    <!-- banner -->
     <section class="banner_w3lspvt" id="home">
       <div class="overlay">
         <div class="container">
@@ -116,7 +110,6 @@
             <div class="col-lg-8">
                 <div class="yield-prediction-container shadow-lg">
                     <h3 class="text-center mb-4">Yield Prediction</h3>
-                    <!-- onsubmit handler prevents page reload and calls predictYield() -->
                     <form id="YieldPredictionForm" onsubmit="event.preventDefault(); predictYield();">
                         <!-- Soil Type (dropdown) -->
                         <div class="form-group">
@@ -209,8 +202,6 @@
     </div>
 </div>
 
-
-<!-- Footer -->
 <footer class="footer py-5">
     <div class="container">
         <div class="row">
@@ -221,16 +212,13 @@
     </div>
 </footer>
 
-<!-- JavaScript Libraries -->
 <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.5.3/dist/umd/popper.min.js"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-<!-- Include the exported regressor model -->
 <script src="..\js/yield_regressor_model.js"></script>
+
 <script>
-    // Function to manually encode categorical features.
     function encodeCategorical(soilType, crop, weatherCondition) {
-    // Use the lexicographically sorted categories from training
     const soilTypes = ["Chalky", "Clay", "Loam", "Peaty", "Sandy", "Silt"];
     const crops = ["Barley", "Cotton", "Maize", "Rice", "Soybean", "Wheat"];
     const weatherConditions = ["Cloudy", "Rainy", "Sunny"];
@@ -248,22 +236,17 @@
 }
 
     function predictYield() {
-        // Retrieve numerical inputs.
         var rainfall_mm = parseFloat(document.getElementById('rainfall_mm').value);
         var temperature_celsius = parseFloat(document.getElementById('temperature_celsius').value);
         var fertilizer_used = document.getElementById('fertilizer_used').checked ? 1 : 0;
         var irrigation_used = document.getElementById('irrigation_used').checked ? 1 : 0;
         var days_to_harvest = parseFloat(document.getElementById('days_to_harvest').value);
         
-        // Retrieve categorical inputs.
         var soil_type = document.getElementById('soil_type').value;
         var crop = document.getElementById('crop').value;
         var weather_condition = document.getElementById('weather_condition').value;
-        
-        // Manually encode categorical features correctly.
         var encodedCategorical = encodeCategorical(soil_type, crop, weather_condition);
         
-        // Create input vector: 15 one-hot features + 5 numerical features = 20 features total.
         var input_features = [
             ...encodedCategorical,
             rainfall_mm,
@@ -273,10 +256,7 @@
             days_to_harvest
         ];
         
-        // Call the exported regressor function (assumed to be named 'score').
         var prediction = score(input_features);
-        
-        // Display the result.
         document.getElementById('predictedYield').innerText = prediction.toFixed(2) + " tons per hectare";
         document.getElementById('predictionResult').style.display = 'block';
     }
@@ -290,7 +270,6 @@
             dropdownContent.classList.toggle("show");
         }
 
-        // Close the dropdown menu if the user clicks outside of it
         window.onclick = function(event) {
             if (!event.target.matches('.dropbtn')) {
                 var dropdowns = document.getElementsByClassName("dropdown-content");

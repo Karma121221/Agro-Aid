@@ -34,7 +34,6 @@ def predict():
 
         required_fields = ['nitrogen', 'phosphorus', 'potassium', 'ph', 'ec', 'oc', 's', 'zn', 'fe', 'cu', 'mn', 'b']
         
-        # Check if all required fields are present
         missing_fields = [field for field in required_fields if field not in data]
         if missing_fields:
             print(f"Error: Missing fields: {missing_fields}")
@@ -55,10 +54,8 @@ def predict():
         prediction = model.predict(features_array)[0]
         print("Raw prediction:", prediction)
         
-        # Ensure prediction is an integer
         numeric_prediction = int(prediction)
         
-        # Map numeric prediction to fertility level
         fertility_levels = {
             0: "Less Fertile",
             1: "Fertile",
