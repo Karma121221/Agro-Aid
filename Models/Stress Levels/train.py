@@ -4,7 +4,7 @@ from sklearn.model_selection import train_test_split
 import joblib
 
 # Load the dataset (update 'your_data.csv' with your actual filename)
-df = pd.read_csv('your_data.csv')
+df = pd.read_csv('data.csv')
 
 # Prepare features and target:
 # Assuming 'Plant_Health_Status' is the label and we drop 'Timestamp' and 'Plant_ID'

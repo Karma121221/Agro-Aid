@@ -3,7 +3,7 @@ from flask_cors import CORS
 import google.generativeai as genai
 import re 
 
-API_KEY = "AIzaSyAPNqBA-Y0JNVdAZLB5sZoU7r14ZY1hCqU"
+API_KEY = "PUT API HERE"
 genai.configure(api_key=API_KEY)
 
 app = Flask(__name__, static_folder="Agro-Aid", static_url_path="/Agro-Aid")
