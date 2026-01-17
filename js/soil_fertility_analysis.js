@@ -41,7 +41,7 @@ document.getElementById('soilFertilityForm').addEventListener('submit', async fu
         console.log('Sending data to API:', formData);
 
         // Make API request
-        const response = await fetch('http://localhost:5000/soil_fertility_predict', {
+        const response = await fetch('/soil_fertility_predict', {
             method: 'POST',
             headers: {
                 'Content-Type': 'application/json',

@@ -25,7 +25,7 @@ document.addEventListener("DOMContentLoaded", function () {
     chatBox.scrollTop = chatBox.scrollHeight;
 
     // Send message to Flask backend
-    fetch("http://127.0.0.1:5500/chat", {
+    fetch("/chat", {
       method: "POST",
       headers: { "Content-Type": "application/json" },
       body: JSON.stringify({ message: message }),
