@@ -4,100 +4,170 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Weather Dashboard</title>
+    <title>Weather Dashboard - AgroAid</title>
     <!--Bootstrap CSS CDN-->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/css/bootstrap.min.css" />
-    <!-- Font Awesome CSS Icons (For cool glyphicons) -->
+    <!-- Font Awesome CSS Icons -->
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.5.0/css/font-awesome.min.css">
-    <link rel="stylesheet" href="style.css">
-    <div id="google_translate_element"></div> 
-
-    <!-- to your js part -->
-    <script src="script.js"></script>
-          <script type="text/javascript">
-            function googleTranslateElementInit() {
-                new google.translate.TranslateElement(
-                    {pageLanguage: 'en'},
-                    'google_translate_element'
-                );
-            } 
-      </script>
-      <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
-
+    <link rel="stylesheet" href="../css/modern-design.css">
+    <link rel="stylesheet" href="modern-weather.css">
 </head>
 <body>
-    <!--Jumbotron for Title-->
-     <div class="jumbotron container-fluid mt-2 text-center p-2" style="background-color:#404040 ;color: white;">
-        <h1> <strong>Weather Dashboard</strong></h1>
-    </div>
-    <div class="container">
-        <!--Row for searching a city-->
-        <div class="row">
-            <div class="col-sm-4 bg-light">
-                <!--Here we create an HTML form for handling the inputs-->
-                <h4 class="pt-1"><strong>Search for a City:</strong></h4>
-                <!--Here we create the text box for capturing the search city Name-->
-                <div class="input-group mb-3">
-                    <input type="text" class="form-control"id="search-city" aria-label="City Search" aria-describedby="search-button">
-                    <div class="input-group-append">
-                        <button class=" btn bg-primary text-light" id="search-button"><i class="fa fa-search"></i></button>
-                    </div>
-                </div>
-                <!--section for search city history-->
-                <button class=" btn btn-primary" type="button" id="clear-history">Clear history</button>
-                <ul class="list-group">
+    <div id="google_translate_element"></div>
 
-                </ul>
-            </div>   
-            <div class="col-sm-8">
-                <div class="row ml-2 border border-dark rounded">
-                    <div class="col-sm-12" id="current-weather">
-                        <h3 class="city-name mb-1 mt-2 bolder" id="current-city"></h3>
-                        <p>Temperature:<span class="current" id="temperature"></span></p>
-                        <p>Humidity:<span class="current" id="humidity"></span></p> 
-                        <p>Wind Speed:<span class="current" id="wind-speed"></span></p>
-                        <p>UV index:<span class="current bg-danger rounded py-2 px-2 text-white" id="uv-index"></span></p> 
+    <!-- Modern Navigation -->
+    <header class="modern-nav">
+      <div class="container">
+        <nav>
+          <div class="modern-logo">
+            <h1>
+              <a href="../index.html">
+                <span class="fa fa-tree"></span>
+                <span class="modern-logo-text no-glow">Agro-Aid</span>
+              </a>
+            </h1>
+          </div>
+
+          <div class="dropdown modern-dropdown">
+            <button class="dropbtn modern-dropdown-btn" onclick="toggleDropdown()">
+              Menu <span class="fa fa-bars"></span>
+            </button>
+            <div id="myDropdown" class="dropdown-content modern-dropdown-content">
+                  <a href="../pages/crop_recommendation.html">
+                    <span class="fa fa-leaf"></span> Crop Recommendation
+                  </a>
+                  <a href="../pages/soil_fertility_analysis.html">
+                    <span class="fa fa-microscope"></span> Soil Fertility Analysis
+                  </a>
+                  <a href="../pages/stress_levels.html">
+                    <span class="fa fa-sun"></span> Crop Health Assessment
+                  </a>
+                  <a href="../pages/yield_prediction.html">
+                    <span class="fa fa-tractor"></span> Yield Prediction
+                  </a>
+                  <a href="indexweather.html">
+                    <span class="fa fa-cloud"></span> Weather Dashboard
+                  </a>
+                  <a href="../index.html">
+                    <span class="fa fa-home"></span> Home
+                  </a>
+            </div>
+          </div>
+        </nav>
+      </div>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="modern-hero">
+      <div class="modern-hero-overlay"></div>
+      <div class="modern-hero-content">
+        <h1 class="modern-hero-title"><i class="fa fa-cloud"></i> Weather Dashboard</h1>
+        <p class="modern-hero-subtitle">Get accurate weather forecasts to plan your agricultural activities</p>
+      </div>
+    </section>
+
+    <div class="container">
+        <div class="row">
+            <!-- Search Section -->
+            <div class="col-md-4">
+                <div class="search-section">
+                    <h4><i class="fa fa-search"></i> Search for a City</h4>
+                    <div class="search-input-group">
+                        <input type="text" id="search-city" placeholder="Enter city name..." aria-label="City Search">
+                        <button class="search-btn" id="search-button">
+                            <i class="fa fa-search"></i>
+                        </button>
+                    </div>
+                    <button class="clear-history-btn" id="clear-history">Clear History</button>
+                    <ul class="history-list list-group"></ul>
+                </div>
+            </div>
+
+            <!-- Weather Display Section -->
+            <div class="col-md-8">
+                <!-- Current Weather -->
+                <div class="current-weather-card">
+                    <div id="current-weather">
+                        <h3 class="city-name" id="current-city">Select a city to view weather</h3>
+                        <div class="weather-metric">
+                            <strong>Temperature:</strong>
+                            <span class="current" id="temperature">--</span>
+                        </div>
+                        <div class="weather-metric">
+                            <strong>Humidity:</strong>
+                            <span class="current" id="humidity">--</span>
+                        </div>
+                        <div class="weather-metric">
+                            <strong>Wind Speed:</strong>
+                            <span class="current" id="wind-speed">--</span>
+                        </div>
+                        <div class="weather-metric">
+                            <strong>UV Index:</strong>
+                            <span class="uv-badge" id="uv-index">--</span>
+                        </div>
                     </div>
                 </div>
-                <!--Row for future data to be dumped here-->
-                <div class="col-sm-12" id ="future-weather">
-                    <h3>5-Day Forecast:</h3>
-                    <div class="row text-light">
-                        <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded" >
-                            <p id="fDate0"></p>
-                            <p id="fImg0"></p>
-                            <p>Temp:<span id="fTemp0"></span></p>
-                            <p>Humidity:<span id="fHumidity0"></span></p>
+
+                <!-- 5-Day Forecast -->
+                <div class="forecast-section" id="future-weather">
+                    <h3><i class="fa fa-calendar"></i> 5-Day Forecast</h3>
+                    <div class="forecast-grid">
+                        <div class="forecast-card">
+                            <div class="forecast-date" id="fDate0">--</div>
+                            <div class="forecast-icon" id="fImg0"></div>
+                            <div class="forecast-detail">Temp: <strong id="fTemp0">--</strong></div>
+                            <div class="forecast-detail">Humidity: <strong id="fHumidity0">--</strong></div>
                         </div>
-                        <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded" >
-                            <p id="fDate1"></p>
-                            <p id="fImg1"></p>
-                            <p>Temp:<span id="fTemp1"></span></p>
-                            <p>Humidity:<span id="fHumidity1"></span></p>
+                        <div class="forecast-card">
+                            <div class="forecast-date" id="fDate1">--</div>
+                            <div class="forecast-icon" id="fImg1"></div>
+                            <div class="forecast-detail">Temp: <strong id="fTemp1">--</strong></div>
+                            <div class="forecast-detail">Humidity: <strong id="fHumidity1">--</strong></div>
                         </div>
-                        <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
-                            <p id="fDate2"></p>
-                            <p id="fImg2"></p>
-                            <p>Temp:<span id="fTemp2"></span></p>
-                            <p>Humidity:<span id="fHumidity2"></span></p>
+                        <div class="forecast-card">
+                            <div class="forecast-date" id="fDate2">--</div>
+                            <div class="forecast-icon" id="fImg2"></div>
+                            <div class="forecast-detail">Temp: <strong id="fTemp2">--</strong></div>
+                            <div class="forecast-detail">Humidity: <strong id="fHumidity2">--</strong></div>
                         </div>
-                        <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded">
-                            <p id="fDate3"></p>
-                            <p id="fImg3"></p>
-                            <p>Temp:<span id="fTemp3"></span></p>
-                            <p>Humidity:<span id="fHumidity3"></span></p>
+                        <div class="forecast-card">
+                            <div class="forecast-date" id="fDate3">--</div>
+                            <div class="forecast-icon" id="fImg3"></div>
+                            <div class="forecast-detail">Temp: <strong id="fTemp3">--</strong></div>
+                            <div class="forecast-detail">Humidity: <strong id="fHumidity3">--</strong></div>
                         </div>
-                        <div class="col-sm-2 bg-primary forecast text-white ml-2 mb-3 p-2 mt-2 rounded" >
-                            <p id="fDate4"></p>
-                            <p id="fImg4"></p>
-                            <p>Temp:<span id="fTemp4"></span></p>
-                            <p>Humidity:<span id="fHumidity4"></span></p>
+                        <div class="forecast-card">
+                            <div class="forecast-date" id="fDate4">--</div>
+                            <div class="forecast-icon" id="fImg4"></div>
+                            <div class="forecast-detail">Temp: <strong id="fTemp4">--</strong></div>
+                            <div class="forecast-detail">Humidity: <strong id="fHumidity4">--</strong></div>
                         </div>
                     </div>
                 </div>
-                
             </div>
         </div>
+    </div>
+
+    <!-- Footer -->
+    <div class="modern-footer mt-5">
+        <div class="container">
+            <p>&copy; 2025 AgroAid Weather Dashboard. All Rights Reserved.</p>
+        </div>
+    </div>
+
+    <script src="dropdown.js"></script>
+    <script src="script.js"></script>
+    <script type="text/javascript">
+        function googleTranslateElementInit() {
+            new google.translate.TranslateElement(
+                {pageLanguage: 'en'},
+                'google_translate_element'
+            );
+        }
+    </script>
+    <script type="text/javascript" src="https://translate.google.com/translate_a/element.js?cb=googleTranslateElementInit"></script>
+</body>
+</html>
     </div>
 		<footer class="mt-5 p-3 text-center bg-light">
 			Weather Dashboard 

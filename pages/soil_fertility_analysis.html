@@ -25,7 +25,7 @@
     <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
-    <link href="../css/soil_fertility_analysis.css" rel="stylesheet" type="text/css" />
+    <link href="../css/modern-design.css" rel="stylesheet" type="text/css" />
     
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
@@ -35,23 +35,23 @@
 </head>
 <body>
     <!-- header -->
-    <header>
+    <header class="modern-nav">
       <div class="container">
-        <nav class="py-4 d-lg-flex align-items-center">
-          <div id="logo" class="mr-auto">
-            <h1 style="margin-left: -100px;">
+        <nav>
+          <div class="modern-logo">
+            <h1>
               <a href="../index.html">
-                <span class="fa fa-tree" style="font-size: 30px; color: green"></span>
-                <span style="font-size: 35px; font-weight: bold; color: #90ee90; text-shadow: 0 0 20px #90ee90;">Agro-Aid</span>
+                <span class="fa fa-tree"></span>
+                <span class="modern-logo-text no-glow">Agro-Aid</span>
               </a>
             </h1>
           </div>
 
-          <div class="dropdown">
-            <button class="dropbtn" onclick="toggleDropdown()">
+          <div class="dropdown modern-dropdown">
+            <button class="dropbtn modern-dropdown-btn" onclick="toggleDropdown()">
               Menu <span class="fa fa-bars"></span>
             </button>
-            <div id="myDropdown" class="dropdown-content">
+            <div id="myDropdown" class="dropdown-content modern-dropdown-content">
               <a href="crop_recommendation.html">
                 <span class="fa fa-seedling"></span> Crop Recommendation
               </a>
@@ -68,200 +68,149 @@
     </header>
 
     <!-- banner -->
-    <section class="banner_w3lspvt" id="home">
-      <div class="overlay">
-        <div class="container">
-          <div class="w3layouts-banner-info text-center">
-            <div class="agro-aid" style="
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              text-align: center;
-              width: 100%;
-            ">
-              <h3 class="banner-text" style="
-                color: #90ee90;
-                font-size: 50px;
-                font-weight: bold;
-                text-shadow: 0 0 20px #90ee90;
-                margin-bottom: 20px;
-              ">
-                Soil Fertility Analysis
-              </h3>
-              <p class="mb-4" style="
-                color: white;
-                font-size: 18px;
-                max-width: 800px;
-                margin: 0 auto;
-                letter-spacing: 1px;
-              ">
-                Analyze your soil composition to optimize crop growth and yield
-              </p>
-            </div>
-          </div>
-        </div>
+    <section class="modern-hero" style="background-image: url('../images/banner.jpg');">
+      <div class="modern-hero-overlay"></div>
+      <div class="modern-hero-content">
+        <h1 class="modern-hero-title no-glow">Soil Fertility Analysis</h1>
+        <p class="modern-hero-description">
+          Analyze your soil composition to optimize crop growth and yield
+        </p>
       </div>
     </section>
 
     <!-- Main Content -->
-    <div class="w3layouts-banner-info soil-fertility-section">
+    <div class="modern-section">
         <div class="container">
             <div class="row justify-content-center">
-                <div class="col-lg-8">
-                    <div class="soil-fertility-container shadow-lg">
-                        <h3 class="text-center mb-4">Soil Fertility Analysis</h3>
-                        <form id="soilFertilityForm">
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">Nitrogen (mg/kg)</label>
-                                  <input type="number" id="nitrogen" class="form-control" required min="0" max="1000" step="0.01" placeholder="Enter nitrogen content">
-                                  <div class="invalid-feedback">Value must be between 0 and 1000 mg/kg</div>
+                <div class="col-lg-10">
+                    <div class="modern-card">
+                        <div class="modern-card-header">
+                            <h3 class="modern-card-title">Enter Soil Parameters</h3>
+                        </div>
+                        <div class="modern-card-body">
+                            <form id="soilFertilityForm">
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="modern-form-group">
+                                      <label class="modern-label">Nitrogen (mg/kg)</label>
+                                      <input type="number" id="nitrogen" class="form-control modern-input" required min="0" max="1000" step="0.01" placeholder="Enter nitrogen content">
+                                      <div class="invalid-feedback">Value must be between 0 and 1000 mg/kg</div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="modern-form-group">
+                                      <label class="modern-label">Phosphorus (mg/kg)</label>
+                                      <input type="number" id="phosphorus" class="form-control modern-input" required min="0" max="500" step="0.01" placeholder="Enter phosphorus content">
+                                      <div class="invalid-feedback">Value must be between 0 and 500 mg/kg</div>
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">Phosphorus (mg/kg)</label>
-                                  <input type="number" id="phosphorus" class="form-control" required min="0" max="500" step="0.01" placeholder="Enter phosphorus content">
-                                  <div class="invalid-feedback">Value must be between 0 and 500 mg/kg</div>
-                                </div>
-                              </div>
-                            </div>
 
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">Potassium (mg/kg)</label>
-                                  <input type="number" id="potassium" class="form-control" required min="0" max="1000" step="0.01" placeholder="Enter potassium content">
-                                  <div class="invalid-feedback">Value must be between 0 and 1000 mg/kg</div>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="modern-form-group">
+                                      <label class="modern-label">Potassium (mg/kg)</label>
+                                      <input type="number" id="potassium" class="form-control modern-input" required min="0" max="1000" step="0.01" placeholder="Enter potassium content">
+                                      <div class="invalid-feedback">Value must be between 0 and 1000 mg/kg</div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="modern-form-group">
+                                      <label class="modern-label">pH Level</label>
+                                      <input type="number" id="ph" class="form-control modern-input" required min="0" max="14" step="0.01" placeholder="Enter pH level">
+                                      <div class="invalid-feedback">Value must be between 0 and 14</div>
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">pH Level</label>
-                                  <input type="number" id="ph" class="form-control" required min="0" max="14" step="0.01" placeholder="Enter pH level">
-                                  <div class="invalid-feedback">Value must be between 0 and 14</div>
-                                </div>
-                              </div>
-                            </div>
 
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">EC (dS/m)</label>
-                                  <input type="number" id="ec" class="form-control" required min="0" max="20" step="0.01" placeholder="Enter EC value">
-                                  <div class="invalid-feedback">Value must be between 0 and 20 dS/m</div>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="modern-form-group">
+                                      <label class="modern-label">EC (dS/m)</label>
+                                      <input type="number" id="ec" class="form-control modern-input" required min="0" max="20" step="0.01" placeholder="Enter EC value">
+                                      <div class="invalid-feedback">Value must be between 0 and 20 dS/m</div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="modern-form-group">
+                                      <label class="modern-label">Organic Carbon (%)</label>
+                                      <input type="number" id="oc" class="form-control modern-input" required min="0" max="100" step="0.01" placeholder="Enter organic carbon percentage">
+                                      <div class="invalid-feedback">Value must be between 0 and 100%</div>
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">Organic Carbon (%)</label>
-                                  <input type="number" id="oc" class="form-control" required min="0" max="100" step="0.01" placeholder="Enter organic carbon percentage">
-                                  <div class="invalid-feedback">Value must be between 0 and 100%</div>
-                                </div>
-                              </div>
-                            </div>
 
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">Sulfur (mg/kg)</label>
-                                  <input type="number" id="s" class="form-control" required min="0" max="100" step="0.01" placeholder="Enter sulfur content">
-                                  <div class="invalid-feedback">Value must be between 0 and 100 mg/kg</div>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="modern-form-group">
+                                      <label class="modern-label">Sulfur (mg/kg)</label>
+                                      <input type="number" id="s" class="form-control modern-input" required min="0" max="100" step="0.01" placeholder="Enter sulfur content">
+                                      <div class="invalid-feedback">Value must be between 0 and 100 mg/kg</div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="modern-form-group">
+                                      <label class="modern-label">Zinc (mg/kg)</label>
+                                      <input type="number" id="zn" class="form-control modern-input" required min="0" max="100" step="0.01" placeholder="Enter zinc content">
+                                      <div class="invalid-feedback">Value must be between 0 and 100 mg/kg</div>
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">Zinc (mg/kg)</label>
-                                  <input type="number" id="zn" class="form-control" required min="0" max="100" step="0.01" placeholder="Enter zinc content">
-                                  <div class="invalid-feedback">Value must be between 0 and 100 mg/kg</div>
-                                </div>
-                              </div>
-                            </div>
 
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">Iron (mg/kg)</label>
-                                  <input type="number" id="fe" class="form-control" required min="0" max="100" step="0.01" placeholder="Enter iron content">
-                                  <div class="invalid-feedback">Value must be between 0 and 100 mg/kg</div>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="modern-form-group">
+                                      <label class="modern-label">Iron (mg/kg)</label>
+                                      <input type="number" id="fe" class="form-control modern-input" required min="0" max="100" step="0.01" placeholder="Enter iron content">
+                                      <div class="invalid-feedback">Value must be between 0 and 100 mg/kg</div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="modern-form-group">
+                                      <label class="modern-label">Copper (mg/kg)</label>
+                                      <input type="number" id="cu" class="form-control modern-input" required min="0" max="100" step="0.01" placeholder="Enter copper content">
+                                      <div class="invalid-feedback">Value must be between 0 and 100 mg/kg</div>
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">Copper (mg/kg)</label>
-                                  <input type="number" id="cu" class="form-control" required min="0" max="100" step="0.01" placeholder="Enter copper content">
-                                  <div class="invalid-feedback">Value must be between 0 and 100 mg/kg</div>
-                                </div>
-                              </div>
-                            </div>
 
-                            <div class="row">
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">Manganese (mg/kg)</label>
-                                  <input type="number" id="mn" class="form-control" required min="0" max="100" step="0.01" placeholder="Enter manganese content">
-                                  <div class="invalid-feedback">Value must be between 0 and 100 mg/kg</div>
+                                <div class="row">
+                                  <div class="col-md-6">
+                                    <div class="modern-form-group">
+                                      <label class="modern-label">Manganese (mg/kg)</label>
+                                      <input type="number" id="mn" class="form-control modern-input" required min="0" max="100" step="0.01" placeholder="Enter manganese content">
+                                      <div class="invalid-feedback">Value must be between 0 and 100 mg/kg</div>
+                                    </div>
+                                  </div>
+                                  <div class="col-md-6">
+                                    <div class="modern-form-group">
+                                      <label class="modern-label">Boron (mg/kg)</label>
+                                      <input type="number" id="b" class="form-control modern-input" required min="0" max="100" step="0.01" placeholder="Enter boron content">
+                                      <div class="invalid-feedback">Value must be between 0 and 100 mg/kg</div>
+                                    </div>
+                                  </div>
                                 </div>
-                              </div>
-                              <div class="col-md-6">
-                                <div class="form-group">
-                                  <label class="form-label">Boron (mg/kg)</label>
-                                  <input type="number" id="b" class="form-control" required min="0" max="100" step="0.01" placeholder="Enter boron content">
-                                  <div class="invalid-feedback">Value must be between 0 and 100 mg/kg</div>
-                                </div>
-                              </div>
-                            </div>
 
-                            <div class="text-center mt-4">
-                              <button type="submit" style="margin-bottom: 20px;" class="btn btn-primary btn-lg">Analyze Soil Fertility</button>
-                            </div>
-                          </form>
-                          <!-- Prediction Result Display -->
-                          <div id="recommendationResult" class="result-section">
-                            <div id="recommendedFertility"></div>
-                          </div>
+                                <div class="text-center mt-4">
+                                  <button type="submit" class="modern-btn modern-btn-primary modern-btn-block modern-btn-lg">
+                                    Analyze Soil Fertility
+                                  </button>
+                                </div>
+                              </form>
+                              <!-- Prediction Result Display -->
+                              <div id="recommendationResult" style="display: none;" class="mt-4">
+                                <div id="recommendedFertility"></div>
+                              </div>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
 
-    <footer class="footer py-5">
+    <footer class="modern-footer">
         <div class="container">
-            <div class="row">
-                <div class="col-lg-4">
-                    <h5 class="mb-3">About AgroAid</h5>
-                    <p>Empowering farmers with advanced agricultural solutions through AI and data-driven insights.</p>
-                </div>
-                <div class="col-lg-4">
-                    <h5 class="mb-3">Quick Links</h5>
-                    <ul class="list-unstyled">
-                        <li><a href="/">Home</a></li>
-                        <li><a href="/crop_recommendation.html">Crop Recommendation</a></li>
-                        <li><a href="/soil_fertility_analysis.html">Soil Fertility Analysis</a></li>
-                        <li><a href="/stress_levels.html">Crop Health Assessment</a></li>
-                        <li><a href="/yield_prediction.html">Yield Prediction</a></li>
-                        <li><a href="../Weather-Dashboard/indexweather.html">Dashboard</a></li>
-                    </ul>
-                </div>
-                <div class="col-lg-4">
-                    <h5 class="mb-3">Connect With Us</h5>
-                    <div class="social-icons">
-                        <a href="#" class="me-3"><i class="fab fa-facebook-f"></i></a>
-                        <a href="#" class="me-3"><i class="fab fa-twitter"></i></a>
-                        <a href="#" class="me-3"><i class="fab fa-instagram"></i></a>
-                        <a href="#" class="me-3"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
-                </div>
-            </div>
-            <hr class="mt-4">
-            <div class="row mt-3">
-                <div class="col-lg-12 text-center">
-                    <p class="copy-right mb-0">&copy; 2024 AgroAid. All Rights Reserved</p>
-                </div>
-            </div>
+            <p>&copy; 2025 AgroAid. All Rights Reserved.</p>
         </div>
     </footer>
 
@@ -274,9 +223,9 @@
 
         // Close the dropdown menu if the user clicks outside of it
         window.onclick = function(event) {
-            if (!event.target.matches('.dropbtn')) {
+            if (!event.target.matches('.dropbtn') && !event.target.matches('.modern-dropdown-btn')) {
                 var dropdowns = document.getElementsByClassName("dropdown-content");
-                for (var i = 0; i <dropdowns.length; i++) {
+                for (var i = 0; i < dropdowns.length; i++) {
                     var openDropdown = dropdowns[i];
                     if (openDropdown.classList.contains('show')) {
                         openDropdown.classList.remove('show');
@@ -340,18 +289,18 @@
                 
                 // Display the prediction
                 document.getElementById("recommendedFertility").innerHTML = `
-                    <div class="alert alert-success" role="alert">
-                        <h4 class="alert-heading text-dark">Soil Fertility Analysis Result</h4>
-                        <hr>
-                        <p class="mb-0 text-dark">Your soil is: <strong class="text-dark">${prediction}</strong></p>
+                    <div class="modern-alert modern-alert-success" role="alert">
+                        <h4>Soil Fertility Analysis Result</h4>
+                        <hr style="border-color: rgba(6, 95, 70, 0.2);">
+                        <p class="mb-0">Your soil is: <strong>${prediction}</strong></p>
                     </div>`;
                 document.getElementById("recommendationResult").style.display = "block";
             } catch (error) {
                 console.error("Error making prediction:", error);
                 document.getElementById("recommendedFertility").innerHTML = `
-                    <div class="alert alert-danger" role="alert">
-                        <h4 class="alert-heading">Error</h4>
-                        <hr>
+                    <div class="modern-alert modern-alert-error" role="alert">
+                        <h4>Error</h4>
+                        <hr style="border-color: rgba(153, 27, 27, 0.2);">
                         <p class="mb-0">Sorry, there was an error analyzing your soil data. Please try again.</p>
                     </div>`;
                 document.getElementById("recommendationResult").style.display = "block";

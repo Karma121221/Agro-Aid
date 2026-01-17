@@ -25,7 +25,7 @@
     <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
-    <link href="../css/soil_fertility_analysis.css" rel="stylesheet" type="text/css" />
+    <link href="../css/modern-design.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
 
     <!-- google fonts -->
@@ -33,25 +33,25 @@
 </head>
 <body>
     <!-- header -->
-    <header>
+    <header class="modern-nav">
       <div class="container">
-        <nav class="py-4 d-lg-flex align-items-center">
-          <div id="logo" class="mr-auto">
-            <h1 style="margin-left: -100px;">
+        <nav>
+          <div class="modern-logo">
+            <h1>
               <a href="../index.html">
-                <span class="fa fa-tree" style="font-size: 30px; color: green"></span>
-                <span style="font-size: 35px; font-weight: bold; color: #90ee90; text-shadow: 0 0 20px #90ee90;">Agro-Aid</span>
+                <span class="fa fa-tree"></span>
+                <span class="modern-logo-text no-glow">Agro-Aid</span>
               </a>
             </h1>
           </div>
 
-          <div class="dropdown">
-            <button class="dropbtn" onclick="toggleDropdown()">
+          <div class="dropdown modern-dropdown">
+            <button class="dropbtn modern-dropdown-btn" onclick="toggleDropdown()">
               Menu <span class="fa fa-bars"></span>
             </button>
           
             <!-- Hidden dropdown links go inside .dropdown-content -->
-            <div class="dropdown-content" id="myDropdown">
+            <div class="dropdown-content modern-dropdown-content" id="myDropdown">
               <a href="crop_recommendation.html">
                 <span class="fa fa-seedling"></span> Crop Recommendation
               </a>
@@ -69,106 +69,87 @@
     </header>
 
     <!-- banner -->
-    <section class="banner_w3lspvt" id="home">
-      <div class="overlay">
-        <div class="container">
-          <div class="w3layouts-banner-info text-center">
-            <div class="agro-aid" style="
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              text-align: center;
-              width: 100%;
-            ">
-              <h3 class="banner-text" style="
-                color: #90ee90;
-                font-size: 50px;
-                font-weight: bold;
-                text-shadow: 0 0 20px #90ee90;
-                margin-bottom: 20px;
-              ">
-                Yield Projection
-              </h3>
-              <p class="mb-4" style="
-                color: white;
-                font-size: 18px;
-                max-width: 800px;
-                margin: 0 auto;
-                letter-spacing: 1px;
-              ">
-                <br>Our yield prediction tool turns your farm data into clear, actionable insights. By entering details about your soil, 
-                crop type, and local conditions, you receive an accurate forecast of your expected yield.<br><br>This information helps you 
-                plan your harvest more efficiently, manage resources wisely, and make informed decisions to boost your overall productivity
-                 and profitability.
-              </p>
-            </div>
-          </div>
-        </div>
+    <section class="modern-hero" style="background-image: url('../images/banner.jpg');">
+      <div class="modern-hero-overlay"></div>
+      <div class="modern-hero-content">
+        <h1 class="modern-hero-title no-glow">Yield Projection</h1>
+        <p class="modern-hero-description">
+          Our yield prediction tool turns your farm data into clear, actionable insights. By entering details about your soil, 
+          crop type, and local conditions, you receive an accurate forecast of your expected yield. This information helps you 
+          plan your harvest more efficiently, manage resources wisely, and make informed decisions to boost your overall productivity
+          and profitability.
+        </p>
       </div>
     </section>
 
-    <div class="w3layouts-banner-info yield-prediction-section">
+    <div class="modern-section">
       <div class="container">
         <div class="row justify-content-center">
           <div class="col-lg-8">
-            <div class="yield-prediction-container shadow-lg">
-              <h3 class="text-center mb-4">Yield Projection</h3>
-              <form id="yieldForm">
-                <!-- Land Area -->
-                <div class="form-group">
-                  <label for="land_area">Land Area (hectares):</label>
-                  <input type="number" class="form-control" id="land_area" name="land_area" required step="0.01" placeholder="e.g. 2.5"/>
+            <div class="modern-card">
+              <div class="modern-card-header">
+                <h3 class="modern-card-title">Yield Prediction Parameters</h3>
+              </div>
+              <div class="modern-card-body">
+                <form id="yieldForm">
+                  <!-- Land Area -->
+                  <div class="modern-form-group">
+                    <label class="modern-label" for="land_area">Land Area (hectares):</label>
+                    <input type="number" class="form-control modern-input" id="land_area" name="land_area" required step="0.01" placeholder="e.g. 2.5"/>
+                  </div>
+      
+                  <!-- Production -->
+                  <div class="modern-form-group">
+                    <label class="modern-label" for="production">Production (tonnes):</label>
+                    <input type="number" class="form-control modern-input" id="production" name="production" required step="0.01" placeholder="e.g. 500"/>
+                  </div>
+      
+                  <!-- State -->
+                  <div class="modern-form-group">
+                    <label class="modern-label" for="state">State:</label>
+                    <select class="form-control modern-input" id="state" name="state" required>
+                      <option value="">Select State</option>
+                    </select>
+                  </div>
+      
+                  <!-- District -->
+                  <div class="modern-form-group">
+                    <label class="modern-label" for="district">District:</label>
+                    <input type="text" class="form-control modern-input" id="district" name="district" required placeholder="Enter District"/>
+                  </div>
+      
+                  <!-- Crop -->
+                  <div class="modern-form-group">
+                    <label class="modern-label" for="crop">Crop:</label>
+                    <select class="form-control modern-input" id="crop" name="crop" required>
+                      <option value="">Select Crop</option>
+                    </select>
+                  </div>
+      
+                  <!-- Season -->
+                  <div class="modern-form-group">
+                    <label class="modern-label" for="season">Season:</label>
+                    <select class="form-control modern-input" id="season" name="season" required>
+                      <option value="">Select Season</option>
+                      <option>Summer</option>
+                      <option>Kharif</option>
+                      <option>Rabi</option>
+                      <option>Whole Year</option>
+                      <option>Autumn</option>
+                      <option>Winter</option>
+                    </select>
+                  </div>
+      
+                  <button type="submit" class="modern-btn modern-btn-primary modern-btn-block modern-btn-lg mt-4">Predict Yield</button>
+                </form>
+                <a href="yield_prediction_diff.html" class="modern-btn modern-btn-secondary modern-btn-block mt-3">
+                  Alternate Yield Projection Model
+                </a>
+                <div id="result" class="modern-alert modern-alert-success mt-4" style="display:none;">
+                  <h4>Predicted Yield</h4>
+                  <hr style="border-color: rgba(6, 95, 70, 0.2);">
+                  <p id="predictedYield" class="mb-0"></p>
                 </div>
-    
-                <!-- Production -->
-                <div class="form-group">
-                  <label for="production">Production (tonnes):</label>
-                  <input type="number" class="form-control" id="production" name="production" required step="0.01" placeholder="e.g. 500"/>
-                </div>
-    
-                <!-- State -->
-                <div class="form-group">
-                  <label for="state">State:</label>
-                  <select class="form-control" id="state" name="state" required>
-                    <option value="">Select State</option>
-                  </select>
-                </div>
-    
-                <!-- District -->
-                <div class="form-group">
-                  <label for="district">District:</label>
-                  <input type="text" class="form-control" id="district" name="district" required placeholder="Enter District"/>
-                </div>
-    
-                <!-- Crop -->
-                <div class="form-group">
-                  <label for="crop">Crop:</label>
-                  <select class="form-control" id="crop" name="crop" required>
-                    <option value="">Select Crop</option>
-                  </select>
-                </div>
-    
-                <!-- Season -->
-                <div class="form-group">
-                  <label for="season">Season:</label>
-                  <select class="form-control" id="season" name="season" required>
-                    <option value="">Select Season</option>
-                    <option>Summer</option>
-                    <option>Kharif</option>
-                    <option>Rabi</option>
-                    <option>Whole Year</option>
-                    <option>Autumn</option>
-                    <option>Winter</option>
-                  </select>
-                </div>
-    
-                <button type="submit" class="btn btn-primary btn-block mt-3">Predict Yield</button>
-              </form>
-              <a href="yield_prediction_diff.html" class="btn btn-info btn-block mt-3">Alternate Yield Projection Model with Different Parameters</a>
-              <div id="result" class="alert alert-success mt-4" style="display:none;">
-                <h4 class="alert-heading">Predicted Yield (tonnes per hectare)</h4>
-                <p id="predictedYield" class="mb-0"></p>
               </div>
             </div>
           </div>
@@ -176,15 +157,9 @@
       </div>
     </div>
 
-
-
-<footer class="footer py-5">
+<footer class="modern-footer">
     <div class="container">
-        <div class="row">
-            <div class="col-lg-12 text-center">
-                <p class="copy-right">&copy; 2025 AgroAid. All Rights Reserved.</p>
-            </div>
-        </div>
+        <p>&copy; 2025 AgroAid. All Rights Reserved.</p>
     </div>
 </footer>
 

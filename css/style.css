@@ -1654,56 +1654,97 @@ a.move-top {
 /* Chatbot Button */
 .chatbot-button {
     position: fixed;
-    bottom: 20px;
-    left: 20px;
-    background: #03a9f4;
+    bottom: 24px;
+    right: 24px;
+    background: #2F855A;
     color: white;
-    padding: 10px 15px;
+    padding: 16px 24px;
     border: none;
-    border-radius: 5px;
+    border-radius: 50px;
     cursor: pointer;
-    font-size: 16px;
-    transition: background 0.3s;
-    z-index: 1;
+    font-size: 15px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+    z-index: 1000;
+    box-shadow: 0 4px 12px rgba(47, 133, 90, 0.3);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+}
+
+.chatbot-button::before {
+    content: '💬';
+    font-size: 18px;
 }
 
 .chatbot-button:hover {
-    background: #0288d1;
+    background: #276749;
+    transform: translateY(-2px);
+    box-shadow: 0 6px 20px rgba(47, 133, 90, 0.4);
 }
 
 /* Chatbot Popup */
 .popup {
     position: fixed;
-    bottom: 20px;
-    left: 20px;
-    width: 350px;
-    height: 450px;
+    bottom: 100px;
+    right: 24px;
+    width: 380px;
+    height: 520px;
     background: white;
-    border-radius: 10px;
-    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.5);
+    border-radius: 16px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.12), 0 2px 8px rgba(0, 0, 0, 0.08);
     display: none;
     z-index: 9999;
+    overflow: hidden;
+    border: 1px solid #e2e8f0;
 }
 
 /* Popup Content */
 .popup-content {
-    padding: 15px;
+    padding: 0;
     height: 100%;
     overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+.popup-content p {
+    background: linear-gradient(135deg, #2F855A, #276749);
+    color: white;
+    margin: 0;
+    padding: 20px;
+    font-size: 18px;
+    font-weight: 600;
+}
+
+.popup-content iframe {
+    flex: 1;
+    border: none;
+    background: #f7fafc;
 }
 
 /* Close Button */
 .close-btn {
     position: absolute;
-    top: 10px;
-    right: 15px;
+    top: 16px;
+    right: 20px;
     cursor: pointer;
-    font-size: 20px;
-    color: red;
+    font-size: 24px;
+    color: white;
+    z-index: 10000;
+    width: 32px;
+    height: 32px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.2);
+    transition: all 0.2s ease;
 }
 
 .close-btn:hover {
-    color: darkred;
+    background: rgba(255, 255, 255, 0.3);
+    transform: rotate(90deg);
 }
 
 .core-value py-5 parallax{

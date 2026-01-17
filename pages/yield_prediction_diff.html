@@ -23,30 +23,30 @@
     <link href="../css/bootstrap.css" rel="stylesheet" type="text/css" />
     <link href="../css/style.css" rel="stylesheet" type="text/css" />
     <link href="../css/font-awesome.min.css" rel="stylesheet" />
-    <link href="../css/soil_fertility_analysis.css" rel="stylesheet" type="text/css" />
+    <link href="../css/modern-design.css" rel="stylesheet" type="text/css" />
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
     <link href="//fonts.googleapis.com/css?family=Thasadith:400,400i,700,700i&amp;subset=latin-ext,thai,vietnamese" rel="stylesheet" />
   
 </head>
 <body>
-    <header>
+    <header class="modern-nav">
       <div class="container">
-        <nav class="py-4 d-lg-flex align-items-center">
-          <div id="logo" class="mr-auto">
-            <h1 style="margin-left: -100px;">
+        <nav>
+          <div class="modern-logo">
+            <h1>
               <a href="../index.html">
-                <span class="fa fa-tree" style="font-size: 30px; color: green"></span>
-                <span style="font-size: 35px; font-weight: bold; color: #90ee90; text-shadow: 0 0 20px #90ee90;">Agro-Aid</span>
+                <span class="fa fa-tree"></span>
+                <span class="modern-logo-text no-glow">Agro-Aid</span>
               </a>
             </h1>
           </div>
 
-          <div class="dropdown">
-            <button class="dropbtn" onclick="toggleDropdown()">
+          <div class="dropdown modern-dropdown">
+            <button class="dropbtn modern-dropdown-btn" onclick="toggleDropdown()">
               Menu <span class="fa fa-bars"></span>
             </button>
           
-            <div class="dropdown-content" id="myDropdown">
+            <div class="dropdown-content modern-dropdown-content" id="myDropdown">
               <a href="crop_recommendation.html">
                 <span class="fa fa-seedling"></span> Crop Recommendation
               </a>
@@ -58,46 +58,21 @@
               </a>
             </div>
           </div>
-          
-          </div>
         </nav>
       </div>
     </header>
 
-    <section class="banner_w3lspvt" id="home">
-      <div class="overlay">
-        <div class="container">
-          <div class="w3layouts-banner-info text-center">
-            <div class="agro-aid" style="
-              position: absolute;
-              top: 50%;
-              left: 50%;
-              transform: translate(-50%, -50%);
-              text-align: center;
-              width: 100%;
-            ">
-              <h3 class="banner-text" style="
-                color: #90ee90;
-                font-size: 50px;
-                font-weight: bold;
-                text-shadow: 0 0 20px #90ee90;
-                margin-bottom: 20px;
-              ">
-                Yield Prediction
-              </h3>
-              <p class="mb-4" style="
-                color: white;
-                font-size: 18px;
-                max-width: 800px;
-                margin: 0 auto;
-                letter-spacing: 1px;
-              ">
-                <br>Our yield prediction tool turns your farm data into clear, actionable insights. By entering details about your soil, 
-                crop type, and local conditions, you receive an accurate forecast of your expected yield.<br><br>This information helps you 
-                plan your harvest more efficiently, manage resources wisely, and make informed decisions to boost your overall productivity
-                 and profitability.
-              </p>
-            </div>
+    <section class="modern-hero" style="background-image: url('../images/banner.jpg');">
+      <div class="modern-hero-overlay"></div>
+      <div class="modern-hero-content">
+        <h1 class="modern-hero-title no-glow">Yield Prediction (Alternative Model)</h1>
+        <p class="modern-hero-description">
+          Our yield prediction tool turns your farm data into clear, actionable insights. By entering details about your soil, 
+          crop type, and local conditions, you receive an accurate forecast of your expected yield. This information helps you 
+          plan your harvest more efficiently, manage resources wisely, and make informed decisions to boost your overall productivity
+          and profitability.
+        </p>
+      </div>
           </div>
         </div>
       </div>
