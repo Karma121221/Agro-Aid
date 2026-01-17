@@ -1656,37 +1656,37 @@ a.move-top {
     position: fixed;
     bottom: 24px;
     right: 24px;
-    background: #2F855A;
+    background: #4caf50;
     color: white;
-    padding: 16px 24px;
+    padding: 10px 16px;
     border: none;
     border-radius: 50px;
     cursor: pointer;
-    font-size: 15px;
+    font-size: 13px;
     font-weight: 600;
     transition: all 0.3s ease;
     z-index: 1000;
-    box-shadow: 0 4px 12px rgba(47, 133, 90, 0.3);
+    box-shadow: 0 4px 12px rgba(76, 175, 80, 0.3);
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
 }
 
 .chatbot-button::before {
     content: '💬';
-    font-size: 18px;
+    font-size: 16px;
 }
 
 .chatbot-button:hover {
-    background: #276749;
+    background: #217526;
     transform: translateY(-2px);
-    box-shadow: 0 6px 20px rgba(47, 133, 90, 0.4);
+    box-shadow: 0 6px 20px rgba(76, 175, 80, 0.4);
 }
 
 /* Chatbot Popup */
 .popup {
     position: fixed;
-    bottom: 100px;
+    bottom: 24px;
     right: 24px;
     width: 380px;
     height: 520px;
