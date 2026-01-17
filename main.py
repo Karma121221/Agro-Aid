@@ -54,7 +54,7 @@ except Exception as e:
 def agro_aid_chatbot(user_input):
     """Process chatbot requests using Google Gemini AI"""
     try:
-        model = genai.GenerativeModel("models/gemini-2.0-flash")
+        model = genai.GenerativeModel("models/gemini-2.5-flash")
         response = model.generate_content(user_input)
         formatted_response = format_text(response.text) if response.text else "I'm sorry, I couldn't understand that."
         return formatted_response
