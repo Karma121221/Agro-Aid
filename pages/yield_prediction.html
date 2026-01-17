@@ -221,7 +221,7 @@
     const crop = document.getElementById("crop").value;
     const season = document.getElementById("season").value;
 
-    fetch("http://localhost:5000/predict-yield", {
+    fetch("/predict-yield", {
       method: "POST",
       headers: {
         "Content-Type": "application/json"
